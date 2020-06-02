@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><tiles:getAsString name="title"/></title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/escalade/css/style.css" />
   </head>
   <body>
         <table>

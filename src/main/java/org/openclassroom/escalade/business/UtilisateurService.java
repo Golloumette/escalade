@@ -1,5 +1,15 @@
 package org.openclassroom.escalade.business;
 
-public interface UtilisateurService {
+import java.util.List;
 
-}
+import org.openclassroom.escalade.model.UtilisateurBo;
+
+public interface UtilisateurService {
+	public List<UtilisateurBo> liste ();
+		
+		
+		
+	}
+
+	
+
