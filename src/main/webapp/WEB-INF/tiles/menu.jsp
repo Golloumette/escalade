@@ -9,7 +9,7 @@
    <a class="nav-link" href="/escalade/accueil.html" >Accueil</a>
   </li>
      <li class="nav-item">
-    <a class="nav-link" href="/escalade/site/utilisateur.html">Inscritpion</a>
+    <a class="nav-link" href="/escalade/site/utilisateur.html">Inscription</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="/escalade/site/liste.html">Site</a>

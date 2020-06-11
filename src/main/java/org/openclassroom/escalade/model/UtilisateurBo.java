@@ -12,6 +12,7 @@ public class UtilisateurBo {
 	private String mail;
 	private String tel;
 	private Boolean licencie;
+	
 	public Integer getId() {
 		return Id;
 	}

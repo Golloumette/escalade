@@ -17,7 +17,7 @@ public class UtilisateurController {
 	@Autowired
 	private UtilisateurService utilisateurService;
 	
-	@RequestMapping("/inscription")
+	@RequestMapping("/utilisateur")
 	public ModelAndView liste() {
 		
 		List<UtilisateurBo> utilisateurBos= utilisateurService.liste();
