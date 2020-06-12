@@ -1,5 +1,13 @@
 package org.openclassroom.escalade.dao;
 
-public interface SiteDao {
+import java.util.List;
 
+import org.openclassroom.escalade.model.SiteBo;
+
+public interface SiteDao {
+	public List<SiteBo> liste();
+
+	public SiteBo insertion (SiteBo siteBo);
+	
+	
 }

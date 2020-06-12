@@ -1,9 +1,21 @@
 package org.openclassroom.escalade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="site")
 public class SiteBo {
 	private Integer id;
 	private String nom;
 	private String lieu;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}

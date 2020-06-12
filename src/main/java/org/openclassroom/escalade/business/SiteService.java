@@ -6,4 +6,6 @@ import org.openclassroom.escalade.model.SiteBo;
 
 public interface SiteService {
 	public List<SiteBo> liste ();
+	public SiteBo insertion (SiteBo siteBo);
 }
+    
