@@ -1,5 +1,6 @@
 package org.openclassroom.escalade.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,8 @@ public class SiteBo {
 	private Integer id;
 	private String nom;
 	private String lieu;
+	private String commentaire;
+	
 	
 	
 	@Id
@@ -33,6 +36,13 @@ public class SiteBo {
 	}
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
+	}
+	@Column(name="commentaires")
+	public String getCommentaire() {
+		return commentaire;
+	}
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
 	}
 
 }

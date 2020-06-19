@@ -13,8 +13,7 @@ public class TopoBo {
 	private String nom;
 	private String description;
 	private String lieu;
-	private Integer date;
-	private Boolean dispo;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,18 +41,8 @@ public class TopoBo {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-	public Integer getDate() {
-		return date;
-	}
-	public void setDate(Integer date) {
-		this.date = date;
-	}
-	public Boolean getDispo() {
-		return dispo;
-	}
-	public void setDispo(Boolean dispo) {
-		this.dispo = dispo;
-	}
+	
+	
 	
 	
 

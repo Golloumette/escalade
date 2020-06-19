@@ -43,15 +43,14 @@
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" required /></br>
+					<input type="email" required />
 				</div>
 				<div class="form-group">
 					<label for="tel">Telephone</label>
-					<input type="tel" /></br>
+					<input type="tel" />
 				</div>
-				<div class="form-group">
-				<input type="date" required  /></br>
-				<input type="search" />
+			
+				
 
 
 			
