@@ -1,6 +1,5 @@
 package org.openclassroom.escalade.business.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;

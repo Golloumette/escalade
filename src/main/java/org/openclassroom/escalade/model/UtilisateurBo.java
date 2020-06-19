@@ -1,5 +1,13 @@
 package org.openclassroom.escalade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
+@Entity
+@Table(name="utilisateur")
 public class UtilisateurBo {	
 	private Integer Id;
 	private String nom;
@@ -13,6 +21,9 @@ public class UtilisateurBo {
 	private String tel;
 	private Boolean licencie;
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return Id;
 	}

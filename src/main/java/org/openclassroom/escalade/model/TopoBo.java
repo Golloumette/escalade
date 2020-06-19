@@ -1,5 +1,13 @@
 package org.openclassroom.escalade.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
+@Entity
+@Table(name="topo")
 public class TopoBo {
 	private Integer Id;
 	private String nom;
@@ -8,6 +16,8 @@ public class TopoBo {
 	private Integer date;
 	private Boolean dispo;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return Id;
 	}

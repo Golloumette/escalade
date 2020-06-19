@@ -3,21 +3,24 @@
 		<div class="col-1">
 			<ul class="nav">
 				<li class="nav-item">
-    <a class="nav-link active">Menu</a>
-  </li>
-  <li class="nav-item">
-   <a class="nav-link" href="/escalade/accueil.html" >Accueil</a>
-  </li>
-     <li class="nav-item">
-    <a class="nav-link" href="/escalade/site/utilisateur.html">Inscription</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/escalade/site/liste.html">Site</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link" href="/escalade/site/topo.html">Topos</a>
-  </li>
-</ul>
+    
+    <h4>MENU</h4>
+  <li> <a class="btn btn-info" href="/escalade/accueil.html" role="button" >Accueil</a></li>
+  <li> <a class="btn btn-info" href="/escalade/site/utilisateur.html" role="button" >Inscription</a></li>
+   <li>   <a class="btn btn-info" href="/escalade/site/liste.html" role="button" >Site</a></li>
+   <li>  <a class="btn btn-info" href="/escalade/site/topo.html" role="button" >Topos</a></li>
+ 
+   
+   </ul>
+     <div class="login-show">
+     <h4>CONNEXION</h4>
+     	<input type="text" placeholder="Pseudo">
+				<input type="password" placeholder="Password">
+				<input type="button" value="Connexion">
+		
+			</div>
+
+
 </div>
       </div>
     </div>
