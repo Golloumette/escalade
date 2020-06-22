@@ -39,4 +39,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 public UtilisateurBo insertion (UtilisateurBo utilisateurBo) {
 	return utilisateurDao.insertion(utilisateurBo);
 }
+@Override
+@Transactional
+public UtilisateurBo update(UtilisateurBo utilisateurBo) {
+	return utilisateurDao.update(utilisateurBo);
+	
+	
+}
 }

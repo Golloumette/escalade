@@ -6,7 +6,7 @@ import org.openclassroom.escalade.model.UtilisateurBo;
 
 public interface UtilisateurDao {
 	public List<UtilisateurBo> liste();
-	
 	public UtilisateurBo insertion ( UtilisateurBo utilisateurBo);
+	public UtilisateurBo update (UtilisateurBo utilisateurBo);
 
 }

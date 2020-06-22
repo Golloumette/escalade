@@ -7,7 +7,7 @@
 </div>
 </div>
 <div class="row">
-<form method="post" action="">
+<form method="post" action="update.html">
 	<h1> Formulaire inscription</h1>
 	
 	
@@ -15,44 +15,41 @@
 				
 				<div class="form-group">
 					<label for="nom">Nom</label>
-					<input type="text" name="nom" required id="Nom"/>
+					<input type="text" name="nom" required class="form-control"/>
 				</div>
 				<div class="form-group">
 					<label for="prénom">Prénom</label>
-					<input type="text" name="prenom" required id="Prenom"/>
+					<input type="text" name="prenom" required class="form-control"/>
 					</div>
 				<div class="form-group">
 					<label for="pseudo">Pseudo</label>
-					<input type="text" name="pseudo" required id="pseudo"/>
+					<input type="text" name="pseudo" required class="form-control"/>
 					</div>
 				<div class="form-group">
 					<label for="password">Mot de passe</label>
-					<input type="password" required="" />
+					<input type="password" required class="form-control" />
 				</div>	
 				<div class="form-group">
 			    	<label for="adresse">Adresse</label>
-					<input type="text" name="adresse" required id="adresse"/>
+					<input type="text" name="adresse" required class="form-control"/>
 				</div>	
 				<div class="form-group">
 				 	<label for="postal">Code Postal</label>
-					<input type="text" name="postal" required id="postal"/>
+					<input type="text" name="postal" required class="form-control"/>
 				</div>	
 				<div class="form-group">
 					 <label for="ville">Ville</label>
-					<input type="text" name="ville" required id="ville"/>
+					<input type="text" name="ville" required class="form-control"/>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" required />
+					<input type="email" required class="form-control" />
 				</div>
 				<div class="form-group">
 					<label for="tel">Telephone</label>
-					<input type="tel" />
+					<input type="tel" class="form-control" />
 				</div>
 			
-				
-
-
 			
 
 			<button type="submit" class="btn btn-primary">Envoyer</button>

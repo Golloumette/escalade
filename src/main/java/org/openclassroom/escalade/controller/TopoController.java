@@ -17,9 +17,9 @@ private TopoService topoService;
 @RequestMapping("/topo")
 		public ModelAndView liste() {
 	
-	List<TopoBo> toposBos = topoService.liste();
+	List<TopoBo> topoBos = topoService.liste();
 			ModelAndView mv = new ModelAndView("site/topo");
-			mv.addObject("toposBos", toposBos);
+			mv.addObject("topoBos", topoBos);
 			mv.addObject("topo", "Voici les topos");
 			return mv;
 

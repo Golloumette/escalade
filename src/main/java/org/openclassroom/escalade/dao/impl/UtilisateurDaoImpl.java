@@ -34,4 +34,14 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 	
 	}
 
+	@Override
+	public UtilisateurBo update(UtilisateurBo utilisateurBo) {
+		EntityManager em = emf.createEntityManager();
+		// TODO Auto-generated method stub
+		em.getTransaction().begin();
+		em.merge(utilisateurBo);
+		em.getTransaction().commit();
+		return utilisateurBo;
+	}
+
 }
