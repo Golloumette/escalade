@@ -1,5 +1,6 @@
 package org.openclassroom.escalade.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -48,6 +49,7 @@ public class UtilisateurBo {
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
+	@Column (name="mdp"  )
 	public String getMdp() {
 		return mdp;
 	}
@@ -90,8 +92,5 @@ public class UtilisateurBo {
 	public void setLicencie(Boolean licencie) {
 		this.licencie = licencie;
 	}
-
-	
-	
 
 }

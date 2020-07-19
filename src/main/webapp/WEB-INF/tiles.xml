@@ -20,16 +20,48 @@
     	<put-attribute name="title" value="La liste des sites" />
 		<put-attribute name="body" value="/WEB-INF/views/site/liste.jsp"/>
 	</definition>
-	
-	<definition name="site/topo" extends="template">
+		
+	<definition name="topo/liste" extends="template">
 	<put-attribute name="title" value="la liste des topos" />
-	<put-attribute name="body" value="/WEB-INF/views/site/topo.jsp" />
+	<put-attribute name="body" value="/WEB-INF/views/topo/liste.jsp" />
 	</definition>
 	
-	<definition name="site/utilisateur" extends="template">
+	<definition name="utilisateur/ajouter" extends="template">
 	<put-attribute name="title" value="Formulaire inscription" />
-	<put-attribute name="body" value="/WEB-INF/views/site/utilisateur.jsp"/>
+	<put-attribute name="body" value="/WEB-INF/views/utilisateur/ajouter.jsp"/>
 	</definition>
+	
+	<definition name="site/edit" extends="template">
+	<put-attribute name="title" value="edit site" />
+	<put-attribute name="body" value="/WEB-INF/views/site/edit.jsp"/>
+	</definition>
+	
+	<definition name="topo/edit" extends="template">
+	<put-attribute name="title" value="edit topo" />
+	<put-attribute name="body" value="/WEB-INF/views/topo/edit.jsp"/>
+	</definition>
+	
+	<definition name="utilisateur/edit" extends="template">
+	<put-attribute name="title" value="edit utilisateur" />
+	<put-attribute name="body" value="/WEB-INF/views/utilisateur/edit.jsp"/>
+	</definition>
+	
+		<definition name="utilisateur/liste" extends="template">
+	<put-attribute name="title" value="liste utilisateur" />
+	<put-attribute name="body" value="/WEB-INF/views/utilisateur/liste.jsp"/>
+	</definition>
+	
+	<definition name="secteur/liste" extends="template">
+	<put-attribute name="title" value="liste secteur" />
+	<put-attribute name="body" value="/WEB-INF/views/secteur/liste.jsp"/>
+	</definition>
+	
+	
+	<definition name="secteur/edit" extends="template">
+	<put-attribute name="title" value="modifier secteur" />
+	<put-attribute name="body" value="/WEB-INF/views/secteur/edit.jsp"/>
+	</definition>
+
 	
 </tiles-definitions>
 

@@ -13,27 +13,59 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class SiteDaoImpl implements SiteDao {
+	
 	@Autowired
 	EntityManagerFactory emf;
 	
-
-	
-
 	@Override
 	public List<SiteBo> liste() {
-		// TODO Auto-generated method stub
-		return emf.createEntityManager().createQuery("from SiteBo").getResultList();
+			return emf.createEntityManager().createQuery("from SiteBo").getResultList();
 	}
+	@Override
+	public List<SiteBo> liste(Integer id) {
+		return emf.createEntityManager().createQuery("from SiteBo where id= :id" ).setParameter("id", id).getResultList();
+}
 
 
 	@Override
 	public SiteBo insertion(SiteBo siteBo) {
 		EntityManager em = emf.createEntityManager();
-		// TODO Auto-generated method stub
+		
 		 em.getTransaction().begin();
 		 em.persist(siteBo);
 		 em.getTransaction().commit();
 		 return siteBo;
+	}
+
+
+	@Override
+	public SiteBo update(SiteBo siteBo) {
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		em.merge(siteBo);
+		em.getTransaction().commit();
+		return siteBo;
+	}
+
+
+	@Override
+	 public SiteBo getById(Integer id) {
+	 EntityManager em = emf.createEntityManager();
+	 SiteBo siteBo = em.find(SiteBo.class, id);
+	 
+	
+	return siteBo;
+	}
+
+
+	@Override
+	public SiteBo deleteById(Integer id) {
+	EntityManager em = emf.createEntityManager();
+		
+		em.getTransaction().begin();
+		 em.remove(SiteBo.class);
+		em.getTransaction().commit();
+		return null;
 	}
 	
 	

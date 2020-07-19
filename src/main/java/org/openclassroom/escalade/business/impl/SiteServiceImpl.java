@@ -17,11 +17,31 @@ private SiteDao siteDao;
 					
 			return siteDao.liste();
 			
+			
 					
+		}
+		public List<SiteBo> liste(Integer id) {
+			
+			return siteDao.liste(id);
 		}
 		@Transactional
 		public SiteBo insertion (SiteBo siteBo) {
 			return siteDao.insertion(siteBo);
+		}
+		@Override
+		@Transactional
+		public SiteBo update(SiteBo siteBo) {
+		
+			return siteDao.update(siteBo);
+		}
+		@Override
+		public SiteBo getById(Integer id) {
+			
+			return siteDao.getById(id);
+		}
+		@Override
+		public SiteBo deleteById(Integer id) {	
+			return siteDao.deleteById(id);
 		}
 
 	

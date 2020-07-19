@@ -6,8 +6,11 @@ import org.openclassroom.escalade.model.SiteBo;
 
 public interface SiteDao {
 	public List<SiteBo> liste();
-
+	public List<SiteBo> liste(Integer id);
 	public SiteBo insertion (SiteBo siteBo);
+	public SiteBo update(SiteBo siteBo);
+	public SiteBo getById(Integer id);
+	public SiteBo deleteById(Integer id);
 	
 	
 }

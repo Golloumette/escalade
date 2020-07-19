@@ -26,6 +26,12 @@ private TopoDao topoDao;
 	public TopoBo insertion (TopoBo topoBo) {
 		return topoDao.insertion(topoBo);
 	}
+	@Override
+	@Transactional
+	public TopoBo update(TopoBo topoBo) {
+		return topoDao.update(topoBo);
+
+	}
 	
 	}
 

@@ -9,4 +9,7 @@ public interface TopoDao {
 	
 	public TopoBo insertion (TopoBo topoBo);
 
+	public TopoBo update(TopoBo topoBo);
+	
+
 }

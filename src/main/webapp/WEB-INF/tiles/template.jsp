@@ -15,7 +15,6 @@
         <div class="col-lg-4">
           <tiles:insertAttribute name="menu"/>
         </div>
-        
         <div class="col-lg-8">
           <tiles:insertAttribute name="body"/>
         </div>

@@ -13,10 +13,13 @@ public class TopoBo {
 	private String nom;
 	private String description;
 	private String lieu;
+	private String dt_parution;
+	private String utilisateur_id;
+	
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return Id;
 	}
@@ -41,6 +44,19 @@ public class TopoBo {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
+	public String getDt_parution() {
+		return dt_parution;
+	}
+	public void setDt_parution(String dt_parution) {
+		this.dt_parution = dt_parution;
+	}
+	public Boolean getDisponible() {
+		return disponible;
+	}
+	public void setDisponible(Boolean disponible) {
+		this.disponible = disponible;
+	}
+	private Boolean disponible;
 	
 	
 	

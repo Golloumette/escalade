@@ -18,18 +18,28 @@ public class TopoDaoImpl implements TopoDao {
 
 	@Override
 	public List<TopoBo> liste() {
-		// TODO Auto-generated method stub
-		return emf.createEntityManager().createQuery("from TopoBo").getResultList();
+				return emf.createEntityManager().createQuery("from TopoBo").getResultList();
 	}
 
 	@Override
 	public TopoBo insertion(TopoBo topoBo) {
 		EntityManager em = emf.createEntityManager();
-		// TODO Auto-generated method stub
+	
 		 em.getTransaction().begin();
 		 em.persist(topoBo);
 		 em.getTransaction().commit();
 		return topoBo;
+	}
+
+	@Override
+	public TopoBo update(TopoBo topoBo) {
+		EntityManager em = emf.createEntityManager();
+	
+		em.getTransaction().begin();
+		em.merge(topoBo);
+		em.getTransaction().commit();
+		return topoBo;
+	
 	}
 	
 	
