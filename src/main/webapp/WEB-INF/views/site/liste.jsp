@@ -3,10 +3,11 @@
 	
 	<table class="table table-hover table-striped">
 	
-	<thead><tr><th>ID</th><th>Nom</th><th>Lieu</th></tr>
+	<thead><tr><th>Nom</th><th>Lieu</th></tr>
 	<tbody></tbody><c:forEach items="${siteBos}" var="siteBo">
+		<input type="hidden" name="id" value="${siteBo.id}">
 		<tr>
-			<td>${siteBo.id}</td>
+			
 			<td><a href="/escalade/site/edit.html?id=${siteBo.id}"> ${siteBo.nom}</a></td>
 			<td>${siteBo.lieu}</td>
 			

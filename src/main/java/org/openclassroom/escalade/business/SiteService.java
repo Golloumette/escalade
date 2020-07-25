@@ -11,7 +11,7 @@ public interface SiteService {
 	public SiteBo insertion (SiteBo siteBo);
 	public SiteBo update (SiteBo siteBo);
 	public SiteBo getById (Integer id);
-	public SiteBo deleteById(Integer id);
+	public void deleteById(Integer id);
 
 }
     

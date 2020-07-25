@@ -21,7 +21,7 @@
 		<form method="post" action="update.html">
 		<input type= "hidden" name="id" value="${siteBo.id}">
 		<c:if test="${empty siteBo.id}"><h1>Ajouter un site</h1></c:if>
-		<c:if test="${not empty siteBo.id}"><h1>Modifier un site</h1></c:if>
+		<c:if test="${not empty siteBo.id}"><h1>Modifier le site</h1></c:if>
 	
 				<div class="form-group">
 					<label for="nom">Nom</label>
@@ -34,7 +34,9 @@
 					<c:if test="${empty siteBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
 					<c:if test="${not empty siteBo.id}"><button type="submit" class="btn btn-primary">Modifier</button>
 					<a class="btn btn-info" href="/escalade/secteur/edit.html?id=${siteBo.id}" role="button" >Ajouter un secteur</a></c:if>
-	
+	<c:if test="${not empty siteBo.id}">
+				<button type="button" class="btn btn-primary" onclick="window.location='delete.html?id=${siteBo.id}'">Supprimer le site</button>
+			</c:if>
 					
 			</form>
 	

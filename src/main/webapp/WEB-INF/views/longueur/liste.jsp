@@ -1,21 +1,20 @@
 <div class="container">
-	<h1> Liste des longueurs</h1>
-	
+	<h1>Liste des voies</h1>
+	<c:out value="${longueur}"/>
 	<table class="table table-hover table-striped">
 	
-	<thead><tr><th>ID</th><th>Nom</th><th>Lieu</th></tr>
+	<thead><tr><th>ID</th><th>Nom</th><th>Cotation</th><th>Subdivision</th><th>Spit</th><th>Voie</th></tr>
 	<tbody></tbody><c:forEach items="${longueurBos}" var="longBo">
 		<tr>
-			<td>${siteBo.id}</td>
-			<td><a href="/escalade/site/edit.html?id=${siteBo.id}"> ${siteBo.nom}</a></td>
-			<td>${siteBo.lieu}</td>
+			<td>${longBo.id}</td>
+			<td>${longBo.nom}</td>
+			<td>${longBo.cotation}</td>
+			<td>${longBo.subdivision}</td>
+			<td>${longBo.spit}</td>
+			<td>${longBo.voieBo.nom}</td>
 			
 		</tr>
-		
-		
-	</c:forEach>
+		</c:forEach>
 	</table>
-	<a class="btn btn-info" href="/escalade/site/edit.html" role="button" >Ajouter un site</a>
+	</div>
 	
-	
-</div>

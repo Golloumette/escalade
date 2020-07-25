@@ -3,8 +3,7 @@
 
 	<form method="post" action="update.html">
 		<input type="hidden" name="id" value="${utilisateurBo.id}">
-		<h1>Gérer un site</h1>
-
+		
 		<div class="form-group">
 			<label for="nom">Nom</label> <input type="text" name="nom"
 				value="${utilisateurBo.nom}" class="form-control" />

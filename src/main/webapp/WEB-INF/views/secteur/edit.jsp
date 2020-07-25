@@ -21,7 +21,9 @@
 				</select>
 					
 				
-						<c:if test="${empty secteurBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
+						<c:if test="${empty siteBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
+		
+		
 			</form>
 	
 </div>

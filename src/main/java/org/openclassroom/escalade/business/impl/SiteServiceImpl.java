@@ -40,8 +40,9 @@ private SiteDao siteDao;
 			return siteDao.getById(id);
 		}
 		@Override
-		public SiteBo deleteById(Integer id) {	
-			return siteDao.deleteById(id);
+		@Transactional
+		public void deleteById(Integer id) {	
+			 siteDao.deleteById(id);
 		}
 
 	

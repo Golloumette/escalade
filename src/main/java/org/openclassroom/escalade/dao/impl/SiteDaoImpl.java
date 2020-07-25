@@ -59,13 +59,14 @@ public class SiteDaoImpl implements SiteDao {
 
 
 	@Override
-	public SiteBo deleteById(Integer id) {
+	public void deleteById(Integer id) {
 	EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		 em.remove(SiteBo.class);
+		SiteBo siteBo = em.find(SiteBo.class, id);
+		 em.remove(siteBo);
 		em.getTransaction().commit();
-		return null;
+		
 	}
 	
 	

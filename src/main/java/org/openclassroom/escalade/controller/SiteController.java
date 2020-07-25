@@ -45,7 +45,7 @@ public class SiteController {
 			mv2.addObject("secteurBos", secteurBos);
 		}
 		
-		mv2.addObject("secteur", "Bonjour , voici les secteurs");
+		mv2.addObject("secteur", "Liste des secteurs du site");
 		return mv2;
 	}
 
@@ -75,4 +75,13 @@ public class SiteController {
 
 		return "redirect:/site/liste.html";
 	}
+	
+	@RequestMapping("/delete")
+	public String delete(@RequestParam(required=true)Integer id) {
+		siteService.deleteById(id);
+		
+		return "redirect:/site/liste.html";
+	}
+	
+			
 }

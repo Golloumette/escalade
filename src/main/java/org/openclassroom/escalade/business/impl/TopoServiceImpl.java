@@ -16,6 +16,8 @@ public class TopoServiceImpl implements TopoService {
 @Autowired
 private TopoDao topoDao;
 
+		@Transactional
+		@Override
 	public List<TopoBo> liste() {
 		
 		return topoDao.liste();
@@ -23,6 +25,7 @@ private TopoDao topoDao;
 	
 	}
 	@Transactional
+	@Override
 	public TopoBo insertion (TopoBo topoBo) {
 		return topoDao.insertion(topoBo);
 	}

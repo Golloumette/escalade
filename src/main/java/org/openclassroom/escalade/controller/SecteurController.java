@@ -11,7 +11,6 @@ import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.SiteService;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.SiteBo;
-import org.openclassroom.escalade.model.UtilisateurBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

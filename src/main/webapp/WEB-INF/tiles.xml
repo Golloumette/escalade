@@ -61,7 +61,16 @@
 	<put-attribute name="title" value="modifier secteur" />
 	<put-attribute name="body" value="/WEB-INF/views/secteur/edit.jsp"/>
 	</definition>
-
+	
+	<definition name="voie/liste" extends="template">
+	<put-attribute name="title" value="liste des voies" />
+	<put-attribute name="body" value="/WEB-INF/views/voie/liste.jsp"/>
+	</definition>
+	
+	<definition name="longueur/liste" extends="template">
+	<put-attribute name="title" value="liste des longueurs" />
+	<put-attribute name="body" value="/WEB-INF/views/longueur/liste.jsp"/>
+	</definition>
 	
 </tiles-definitions>
 
