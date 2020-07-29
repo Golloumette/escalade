@@ -67,7 +67,7 @@ public class LongueurController {
 			longueurBo.setNom(nom);
 			longueurBo.setCotation(cotation);
 			longueurBo.setSubdivision(subdivision);
-			longueurBo.setVoiebo(voieService.getById(Integer.parseInt(request.getParameter("voie_id"))));
+			longueurBo.setVoieBo(voieService.getById(Integer.parseInt(request.getParameter("voie_id"))));
 			
 			longueurService.insertion(longueurBo);
 			
@@ -77,7 +77,7 @@ public class LongueurController {
 			longueurBo.setCotation(cotation);
 			longueurBo.setSubdivision(subdivision);
 			longueurBo.setSpit(spit);
-			longueurBo.setVoiebo(voieService.getById(Integer.parseInt(request.getParameter("voie_id"))));
+			longueurBo.setVoieBo(voieService.getById(Integer.parseInt(request.getParameter("voie_id"))));
 			longueurService.update(longueurBo);
 		}
 		return "redirect:/site/liste.html";

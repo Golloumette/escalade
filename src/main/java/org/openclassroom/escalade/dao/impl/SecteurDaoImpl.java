@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-
 import org.openclassroom.escalade.dao.SecteurDao;
 import org.openclassroom.escalade.model.SecteurBo;
-import org.openclassroom.escalade.model.SiteBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -41,13 +39,14 @@ public class SecteurDaoImpl implements SecteurDao {
 		return emf.createEntityManager().createQuery("from SecteurBo where siteBo.id= :id" ).setParameter("id", id).getResultList();
 }
 	@Override
-	public SecteurBo deleteById(Integer id) {
+	public void deleteById(Integer id) {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		em.remove(SecteurBo.class);
+		SecteurBo secteurBo = em.find(SecteurBo.class, id);
+		em.remove(secteurBo);
 		em.getTransaction().commit();
-		return null;
+	
 	}
 
 	@Override

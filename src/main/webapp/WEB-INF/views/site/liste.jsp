@@ -1,5 +1,9 @@
 <div class="container">
-	<h1> Liste des sites</h1>
+
+<div class="d-flex justify-content-center border" style="height: 500px;">
+<img class="align-self-start" src="/escalade/images/site.jpeg" alt="site" width="1000" height="500"   >
+</div>
+	<h1><p class="text-center"> Liste des sites d'escalades</p></h1>
 	
 	<table class="table table-hover table-striped">
 	

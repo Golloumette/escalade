@@ -36,8 +36,8 @@ public class SecteurServiceImpl implements SecteurService {
 	}
 	
 	@Override
-	public SecteurBo deleteById(Integer id) {
-		return secteurDao.deleteById(id);
+	public void deleteById(Integer id) {
+		 secteurDao.deleteById(id);
 	}
 	@Override
 	public SecteurBo getById(Integer id) {

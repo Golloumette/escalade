@@ -72,6 +72,11 @@
 	<put-attribute name="body" value="/WEB-INF/views/longueur/liste.jsp"/>
 	</definition>
 	
+	<definition name="voie/edit" extends="template">
+	<put-attribute name="title" value="edit des voies" />
+	<put-attribute name="body" value="/WEB-INF/views/voie/edit.jsp"/>
+	</definition>
+	
 </tiles-definitions>
 
 

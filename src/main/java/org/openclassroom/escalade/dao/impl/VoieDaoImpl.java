@@ -34,7 +34,7 @@ public class VoieDaoImpl implements VoieDao{
 	
 	@Override
 	public List<VoieBo> liste (Integer id){
-		return emf.createEntityManager().createNamedQuery("from VoieBo where voieBo.id= :id").setParameter("id", id).getResultList();
+		return emf.createEntityManager().createQuery("from VoieBo where secteurBo.id= :id").setParameter("id", id).getResultList();
 				
 	}
 	
