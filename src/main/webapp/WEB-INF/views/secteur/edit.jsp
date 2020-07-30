@@ -25,8 +25,31 @@
 				
 				<c:if test="${not empty secteurBo.id}"><button type="submit" class="btn btn-primary">Modifier</button></c:if>
 						<c:if test="${empty secteurBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
-		<c:if test="${not empty secteurBo.id }"><button type="button" class="btn btn-primary" onclick="window.location='delete.html?id=${secteurBo.id }'">Supprimer le secteur</button>
+		<c:if test="${not empty secteurBo.id }"><button type="button" class="btn btn-primary" onclick="if (confirm('Are you sure ?')){window.location='delete.html?id=${secteurBo.id }';}">Supprimer le secteur</button>
 		</c:if>
 			</form>
 	
 </div>
+<div>
+<h1>Description du secteur</h1>
+	<h3><c:out value="${voie}"/></h3>
+	<c:if test="${not empty voieBos}">
+	<table class="table table-hover table-striped">
+	<thead><tr><th>ID</th><th>Nom</th><th>Cotation</th><th>Subdivision</th><th>Equipe</th><th>Secteur</th></tr>
+	<tbody></tbody><c:forEach items="${voieBos}" var="voieBo">
+		<tr>
+			<td>${voieBo.id}</td>
+			<td><a href="/escalade/voie/edit.html?id=${voieBo.id}"> ${voieBo.nom}</a></td>
+			<td>${voieBo.cotation}</td>
+			<td>${voieBo.subdivision}</td>
+			<td>${voieBo.equipe}</td>
+			<td>${voieBo.secteurBo.nom}</td>
+			
+		</tr>
+		</c:forEach>
+	</table>	
+		</c:if>							
+		<a class="btn btn-info" href="/escalade/voie/edit.html" role="button" >Ajouter une voie</a>
+
+	</div>
+	

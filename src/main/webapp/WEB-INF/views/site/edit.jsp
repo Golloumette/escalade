@@ -39,7 +39,8 @@
 		</tr>
 		</c:forEach>
 	</table>
-		<a class="btn btn-info" href="/escalade/secteur/edit.html?id=${siteBo.id}" role="button" >Ajouter un secteur</a>
-	</c:if>
+		</c:if>
+		<a class="btn btn-info" href="/escalade/secteur/edit.html" role="button" >Ajouter un secteur</a>
+
 	</div>
 	
