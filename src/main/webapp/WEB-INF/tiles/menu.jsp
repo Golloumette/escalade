@@ -15,12 +15,27 @@
    </ul>
      <div class="login-show">
      <h4>CONNEXION</h4>
-     	<input type="text" placeholder="Pseudo">
-				<input type="password" placeholder="Password">
+     	        <input type="text" placeholder="pseudo">
+				<input type="password" placeholder="password">
 				<input type="button" value="Connexion">
 		
 			</div>
-
+		<div>
+		<form action="login.html">
+		<div>
+		<label>login:</label>
+		<input type="text" name="pseduo"/>
+		</div>
+		<div>
+		<label>Password</label>
+		<input type="password" name="password"/>
+		</div>
+		<div>
+		<input type="submit" value="login"/>
+		</div>
+		
+		</form>
+		</div>
 
 </div>
       </div>
