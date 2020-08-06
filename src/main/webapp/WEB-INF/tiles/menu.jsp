@@ -21,10 +21,10 @@
 		
 			</div>
 		<div>
-		<form action="login.html">
+		<form action="${pageContext.request.contextPath}/login" method="post">
 		<div>
 		<label>login:</label>
-		<input type="text" name="pseduo"/>
+		<input type="text" name="pseudo"/>
 		</div>
 		<div>
 		<label>Password</label>

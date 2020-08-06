@@ -11,6 +11,8 @@ public interface UtilisateurService {
 	public UtilisateurBo update (UtilisateurBo utilisateurBo);
 	public UtilisateurBo getById (Integer id);
 	public void deleteById (Integer id);
+	public UtilisateurBo findByPseudo(String pseudo);
+	
 		
 	}
 

@@ -20,7 +20,7 @@ public class UtilisateurBo {
 	private String ville;
 	private String mail;
 	private String tel;
-	private Boolean licencie;
+	private Byte role;
 	
 	
 	@Id
@@ -86,11 +86,12 @@ public class UtilisateurBo {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public Boolean getLicencie() {
-		return licencie;
+	public Byte getRole() {
+		return role;
 	}
-	public void setLicencie(Boolean licencie) {
-		this.licencie = licencie;
+	public void setRole(Byte role) {
+		this.role = role;
 	}
+
 
 }

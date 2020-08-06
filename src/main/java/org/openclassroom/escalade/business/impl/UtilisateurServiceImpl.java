@@ -41,4 +41,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
 		 utilisateurDao.deleteById(id);
 	}
+	@Override
+	public UtilisateurBo findByPseudo(String pseudo) {
+		
+		return utilisateurDao.findByPseudo(pseudo);
+	}
 }

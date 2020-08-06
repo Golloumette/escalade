@@ -12,7 +12,7 @@ public class AccueilController {
 		ModelAndView mv = new ModelAndView("accueil");
 		return mv;
 		
-	@RequestMapping("/login")	
+	
 	
 
 }

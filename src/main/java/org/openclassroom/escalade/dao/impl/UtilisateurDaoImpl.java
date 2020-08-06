@@ -61,4 +61,10 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 	
 	}
 
+	@Override
+	public UtilisateurBo findByPseudo(String pseudo) {
+		return (UtilisateurBo) emf.createEntityManager().createQuery("from UtilisateurBo where pseudo= :pseudo ").setParameter("pseudo", pseudo).getSingleResult();
+	
+	}
+
 }

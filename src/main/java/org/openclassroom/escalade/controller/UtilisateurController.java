@@ -60,7 +60,7 @@ public class UtilisateurController {
 		String ville = request.getParameter("ville");
 		String mail = request.getParameter("mail");
 		String tel = request.getParameter("tel");
-		Boolean licencie = Boolean.parseBoolean(request.getParameter("licencie"));
+		Byte role = Byte.parseByte(request.getParameter("role"));
 		
 		if (id==null||id.equals("")) {
 
@@ -74,7 +74,7 @@ public class UtilisateurController {
 		utilisateurBo.setVille(ville);
 		utilisateurBo.setMail(mail);
 		utilisateurBo.setTel(tel);
-		utilisateurBo.setLicencie(true);
+		utilisateurBo.setRole(role);
 
 
 		utilisateurService.insertion(utilisateurBo);
@@ -90,7 +90,7 @@ public class UtilisateurController {
 			utilisateurBo.setVille(ville);
 			utilisateurBo.setMail(mail);
 			utilisateurBo.setTel(tel);
-			utilisateurBo.setLicencie(licencie);
+			utilisateurBo.setRole(role);
 			
 			utilisateurService.update(utilisateurBo);
 		}

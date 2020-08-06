@@ -4,7 +4,7 @@
 	<table class="table table-hover table-striped">
 	
 	<thead><tr><th>ID</th><th>Nom</th><th>Prenom</th><th>Pseudo</th><th>Adresse</th><th>Code Postal</th><th>Ville</th><th>Mail</th>
-	<th>Telephone</th><th>Licencie</th></tr>
+	<th>Telephone</th><th>Role</th></tr>
 	<tbody></tbody><c:forEach items="${utilisateurBos}" var="utilisateurBo">
 		<tr>
 			<td>${utilisateurBo.id}</td>
@@ -16,7 +16,7 @@
 			<td>${utilisateurBo.ville}</td>
 			<td>${utilisateurBo.mail}</td>
 			<td>${utilisateurBo.tel}</td>
-			<td>${utilisateurBo.licencie}</td> 
+			<td>${utilisateurBo.role}</td> 
 			
 		</tr>
 </c:forEach>

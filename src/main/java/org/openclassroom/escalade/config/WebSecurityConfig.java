@@ -1,57 +1,51 @@
 package org.openclassroom.escalade.config;
 
-import javax.sql.DataSource;
 
+
+import org.openclassroom.escalade.business.impl.UserDetailsImplService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	// configurer DataSource dataSource=new JpaConfig.dataSource;
 	
+	
+	 @Bean
+	    public UserDetailsService userDetailsService() {
+	        return new UserDetailsImplService();
+	    }
+
+	 @Bean
+	    public BCryptPasswordEncoder passwordEncoder() {
+	        return new BCryptPasswordEncoder();
+	    };
+
 	@Autowired
-	public void globalConfig(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configure (AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 		
 		
-		
-		auth
-		.jdbcAuthentication()
-			.dataSource(dataSource)
-			.withDefauLtSchema()
-			.withUser("user").password("password").roles("USER").and()
-			.withUser("admin").password("password").roles("USER", "ADMIN");
 	}
 	
 	@Override
 	protected void configure (HttpSecurity http) throws Exception {
-		http
-		 .authorizeRequests()
-		 // donne les permissions .antMatchers("/admin/**").hasRole("ADMIN")
-		    .anyRequest()
-		      .authenticated()
-		        .and()
-		        //ou .httpBasic();
-		   .formLogin()
-		     .loginPage("/escalade/accueil.html")
-		     .permitAll();
-	}
-	protected void configure2(HttpSecurity http) throws Exception {
-		http
-			.logout()                                                                
-				.logoutUrl("/my/logout")                                                 
-				.logoutSuccessUrl("/my/index")                                          
-				//.logoutSuccessHandler( logoutSuccessHandler)                              
-				.invalidateHttpSession(true) ;                                            
-				//.addLogoutHandler(logoutHandler)                                         
-				//.deleteCookies(cookieNamesToClear)                                       
-				//.and()
-		
+		System.out.println("test spring ");
+		http.authorizeRequests()
+		   .antMatchers("/utilisateur/liste.html").hasAnyRole("ASSO")
+           .antMatchers("/**").permitAll();
+           
+    
+	
+		 
 	}
 	
 	
