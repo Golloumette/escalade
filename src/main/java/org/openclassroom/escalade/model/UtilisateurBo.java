@@ -92,6 +92,12 @@ public class UtilisateurBo {
 	public void setRole(Byte role) {
 		this.role = role;
 	}
+	@Override
+	public String toString() {
+		return "UtilisateurBo [Id=" + Id + ", nom=" + nom + ", prenom=" + prenom + ", pseudo=" + pseudo + ", mdp=" + mdp
+				+ ", adresse=" + adresse + ", postal=" + postal + ", ville=" + ville + ", mail=" + mail + ", tel=" + tel
+				+ ", role=" + role + "]";
+	}
 
 
 }

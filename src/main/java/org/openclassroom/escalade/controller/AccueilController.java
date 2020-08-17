@@ -11,9 +11,14 @@ public class AccueilController {
 	public ModelAndView accueil() {
 		ModelAndView mv = new ModelAndView("accueil");
 		return mv;
-		
+	}	
+	
+	@RequestMapping("login")
+	public String login() {
+		return "login";
+	}
 	
 	
 
-}
+
 }

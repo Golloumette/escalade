@@ -16,6 +16,7 @@ public enum RoleEnum {
 
     public String toString() {
         return name;
+        
     }
 
     public byte getNum() {

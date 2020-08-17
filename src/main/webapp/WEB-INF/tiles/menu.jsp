@@ -13,13 +13,6 @@
  
    
    </ul>
-     <div class="login-show">
-     <h4>CONNEXION</h4>
-     	        <input type="text" placeholder="pseudo">
-				<input type="password" placeholder="password">
-				<input type="button" value="Connexion">
-		
-			</div>
 		<div>
 		<form action="${pageContext.request.contextPath}/login" method="post">
 		<div>
@@ -28,7 +21,7 @@
 		</div>
 		<div>
 		<label>Password</label>
-		<input type="password" name="password"/>
+		<input type="password" name="mdp"/>
 		</div>
 		<div>
 		<input type="submit" value="login"/>

@@ -23,9 +23,9 @@ public class UserDetailsImplService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String pseudo) throws UsernameNotFoundException {
-
+    	System.out.println("pseudo="+pseudo);
         UtilisateurBo utilisateurBo = findUserbyUsername(pseudo);
-
+System.out.println("utilisateurBo="+utilisateurBo.toString());
         UserBuilder builder = null;
         if (utilisateurBo == null) {
             throw new UsernameNotFoundException("User not found.");
@@ -34,6 +34,7 @@ public class UserDetailsImplService implements UserDetailsService {
     }
 
     private UtilisateurBo findUserbyUsername(String pseudo) {
+   
         return utilisateurService.findByPseudo(pseudo);
     }
 }

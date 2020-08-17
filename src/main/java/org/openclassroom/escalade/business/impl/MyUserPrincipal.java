@@ -8,13 +8,19 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.sun.media.jfxmedia.logging.Logger;
 
 import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 
 public class MyUserPrincipal implements UserDetails {
     private UtilisateurBo utilisateurBo;
 
     public MyUserPrincipal(UtilisateurBo utilisateurBo) {
+    	System.out.println("classe my user");
         this.utilisateurBo = utilisateurBo;
     }
 
@@ -29,6 +35,7 @@ public class MyUserPrincipal implements UserDetails {
 
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+		System.out.println("getauthorities");
         if (utilisateurBo.getRole() == RoleEnum.ROLE_ASSO.getNum()) {
             return AuthorityUtils.createAuthorityList(RoleEnum.ROLE_ASSO.getName());
         } else {
@@ -38,12 +45,15 @@ public class MyUserPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-     
-        return utilisateurBo.getMdp();
+    	System.out.println("getmdp="+utilisateurBo.getMdp());
+         String cryptPwd = new BCryptPasswordEncoder().encode(utilisateurBo.getMdp());
+
+         return cryptPwd;
     }
 
     @Override
     public String getUsername() {
+    	System.out.println("getpseudo");
         return utilisateurBo.getPseudo();
     }
 

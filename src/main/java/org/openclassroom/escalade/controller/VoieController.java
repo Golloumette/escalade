@@ -48,7 +48,9 @@ public class VoieController {
 		
 	}
 	@RequestMapping("/update")
+	
 	public String update(HttpServletRequest request) {
+		System.out.println("methode update");
 		String id = request.getParameter("id");
 		String nom = request.getParameter("nom");
 		String cotation = request.getParameter("cotation");
@@ -93,4 +95,9 @@ public class VoieController {
 		
 		return "redirect:/utilisateur/liste.html";
 }
+	@RequestMapping("/maj")
+	public String maj(){
+		System.out.println("maj ok");
+		return null;
+	}
 }

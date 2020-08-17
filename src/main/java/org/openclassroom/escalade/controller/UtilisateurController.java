@@ -60,7 +60,11 @@ public class UtilisateurController {
 		String ville = request.getParameter("ville");
 		String mail = request.getParameter("mail");
 		String tel = request.getParameter("tel");
-		Byte role = Byte.parseByte(request.getParameter("role"));
+		Byte role = null;
+		if (request.getParameter("role")!= null){
+		 role = Byte.parseByte(request.getParameter("role"));
+		}
+		
 		
 		if (id==null||id.equals("")) {
 
@@ -111,5 +115,6 @@ public class UtilisateurController {
 		return "redirect:/utilisateur/liste.html";
 	
 }
+	
 }
 
