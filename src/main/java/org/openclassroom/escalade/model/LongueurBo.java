@@ -1,5 +1,7 @@
 package org.openclassroom.escalade.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,6 +20,8 @@ public class LongueurBo {
 	private String subdivision;
 	private String spit;
 	private VoieBo voieBo;
+	
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -44,5 +44,10 @@ public class LongueurServiceImpl implements LongueurService {
 		longueurDao.deleteById(id);
 		
 	}
+	@Override
+	public List<LongueurBo> liste(Integer id) {
+		// TODO Auto-generated method stub
+		return longueurDao.liste(id);
+	}
 
 }

@@ -23,32 +23,27 @@ public class VoieServiceImpl implements VoieService {
 
 	@Override
 	public List<VoieBo> liste(Integer id) {
-		// TODO Auto-generated method stub
 		return voieDao.liste(id);
 	}
 
 	@Override
 	public VoieBo insertion(VoieBo voieBo) {
-		// TODO Auto-generated method stub
 		return voieDao.insertion(voieBo);
 	}
 
 	@Override
 	public VoieBo deleteById(Integer id) {
-		// TODO Auto-generated method stub
 		return voieDao.deleteById(id);
 	}
 
 	@Override
 	public VoieBo getById(Integer id) {
-		// TODO Auto-generated method stub
 		return voieDao.getById(id);
 		
 	}
 
 	@Override
-	public VoieBo update(VoieBo voieBo) {
-		// TODO Auto-generated method stub
+	public VoieBo update(VoieBo voieBo) {		
 		return voieDao.update(voieBo);
 	}
 

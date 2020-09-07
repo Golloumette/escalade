@@ -82,6 +82,11 @@
 	<put-attribute name="body" value="/WEB-INF/views/login.jsp"/>
 	</definition>
 	
+	<definition name="longueur/edit" extends="template">
+	<put-attribute name="title" value="edit des longueurs" />
+	<put-attribute name="body" value="/WEB-INF/views/longueur/edit.jsp"/>
+	</definition>
+	
 </tiles-definitions>
 
 

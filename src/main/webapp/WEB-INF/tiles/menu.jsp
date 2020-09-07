@@ -14,14 +14,14 @@
    
    </ul>
 		<div>
-		<form action="${pageContext.request.contextPath}/login" method="post">
+		<form action="${pageContext.request.contextPath}/login.html" method="post">
 		<div>
 		<label>login:</label>
-		<input type="text" name="pseudo"/>
+		<input type="text" name="username"/>
 		</div>
 		<div>
 		<label>Password</label>
-		<input type="password" name="mdp"/>
+		<input type="password" name="password"/>
 		</div>
 		<div>
 		<input type="submit" value="login"/>

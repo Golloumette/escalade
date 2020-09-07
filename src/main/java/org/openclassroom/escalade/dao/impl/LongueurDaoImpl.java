@@ -47,7 +47,6 @@ public class LongueurDaoImpl implements LongueurDao {
 	public LongueurBo getById(Integer id) {
 		EntityManager em = emf.createEntityManager();
 		LongueurBo longueurBo = em.find(LongueurBo.class,id);
-		
 		return longueurBo;
 	}
 
@@ -61,6 +60,11 @@ public class LongueurDaoImpl implements LongueurDao {
 		em.getTransaction().commit();
 	
 		
+	}
+
+	@Override
+	public List<LongueurBo> liste(Integer id) {
+		return emf.createEntityManager().createQuery("from LongueurBo where voieBo.id= :id").setParameter("id", id).getResultList();
 	}
 	
 

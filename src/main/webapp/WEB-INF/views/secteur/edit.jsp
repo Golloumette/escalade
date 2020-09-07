@@ -3,7 +3,7 @@
 		<form method="post" action="update.html">
 		<input type="hidden" name="id" value="${secteurBo.id}">
 		<c:if test="${empty secteurBo.id}">Ajouter un secteur</c:if>
-		<c:if test="${not empty secteurBo.id}">Modification/Suppression d'un secteur</c:if>
+		<c:if test="${not empty secteurBo.id}">Modifier/Supprimer un secteur</c:if>
 	
 				<div class="form-group">
 					<label for="nom">Nom</label>

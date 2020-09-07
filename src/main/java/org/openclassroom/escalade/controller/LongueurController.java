@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.VoieService;
 import org.openclassroom.escalade.model.LongueurBo;
+import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,14 +49,14 @@ public class LongueurController {
 			mv2.addObject("longueurBo",longueurBo);
 			
 		}
-		List<LongueurBo> longueurBos = longueurService.liste();
-		
-		mv2.addObject("longueurBos",longueurBos);
+		List<VoieBo> voieBos = voieService.liste();		
+		mv2.addObject("voieBos",voieBos);
 		return mv2;
 	}
 	
 	@RequestMapping("/update")
 	public String update(HttpServletRequest request) {
+		System.out.println("methode update controller longueur");
 		String id = request.getParameter("id");
 		String nom = request.getParameter("nom");
 		String cotation = request.getParameter("cotation");

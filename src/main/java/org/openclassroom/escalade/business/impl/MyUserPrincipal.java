@@ -17,7 +17,11 @@ import javax.persistence.Table;
 
 
 public class MyUserPrincipal implements UserDetails {
-    private UtilisateurBo utilisateurBo;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private UtilisateurBo utilisateurBo;
 
     public MyUserPrincipal(UtilisateurBo utilisateurBo) {
     	System.out.println("classe my user");
@@ -36,18 +40,19 @@ public class MyUserPrincipal implements UserDetails {
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("getauthorities");
-        if (utilisateurBo.getRole() == RoleEnum.ROLE_ASSO.getNum()) {
-            return AuthorityUtils.createAuthorityList(RoleEnum.ROLE_ASSO.getName());
-        } else {
-            return AuthorityUtils.createAuthorityList(RoleEnum.ROLE_USER.getName());
-        }
+		
+       // if (utilisateurBo.getRole() == RoleEnum.ROLE_ASSO.getNum()) {
+            return AuthorityUtils.createAuthorityList("ROLE_ASSO");
+       // } else {
+          //  return AuthorityUtils.createAuthorityList(RoleEnum.ROLE_USER.getName());
+       // }
     }
 
     @Override
     public String getPassword() {
     	System.out.println("getmdp="+utilisateurBo.getMdp());
          String cryptPwd = new BCryptPasswordEncoder().encode(utilisateurBo.getMdp());
-
+System.out.println("cryptpwd="+cryptPwd);
          return cryptPwd;
     }
 

@@ -1,5 +1,7 @@
 package org.openclassroom.escalade.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,7 @@ public class VoieBo {
 	private String subdivision;
 	private Boolean equipe;
 	private SecteurBo secteurBo;
+	private List<LongueurBo> longueurBos;
 	
 	
 	@Id
@@ -59,6 +63,13 @@ public class VoieBo {
 	}
 	public void setSecteurBo(SecteurBo secteurBo) {
 		this.secteurBo = secteurBo;
+	}
+	@OneToMany(mappedBy = "voieBo")
+	public List<LongueurBo> getLongueurBos() {
+		return longueurBos;
+	}
+	public void setLongueurBos(List<LongueurBo> longueurBos) {
+		this.longueurBos = longueurBos;
 	}
 	
 	

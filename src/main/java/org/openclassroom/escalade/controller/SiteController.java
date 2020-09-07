@@ -4,10 +4,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.SiteService;
+import org.openclassroom.escalade.business.VoieService;
+import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.SiteBo;
+import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +26,10 @@ public class SiteController {
 	private SiteService siteService;
 	@Autowired
 	private SecteurService secteurService;
+	@Autowired
+	private VoieService voieService;
+	@Autowired
+	private LongueurService longueurService;
 
 	//affiche la liste des sites
 	@RequestMapping("/liste")
@@ -41,11 +49,19 @@ public class SiteController {
 		if (id!= null) {
 			SiteBo	siteBo = siteService.getById(id);
 			mv2.addObject("siteBo", siteBo);
+			
 			List<SecteurBo> secteurBos= secteurService.liste(id);
 			mv2.addObject("secteurBos", secteurBos);
+			
+			List<VoieBo> voieBos= voieService.liste(id);
+			mv2.addObject("voieBos", voieBos);
+			
+			List<LongueurBo> longueurBos= longueurService.liste(id);
+			mv2.addObject("longeurBos",longueurBos);
+			
 		}
 		
-		mv2.addObject("secteur", "Liste des secteurs du site");
+		mv2.addObject("secteur", "Détail du site secteur,voie et longueur");
 		return mv2;
 	}
 
@@ -78,6 +94,11 @@ public class SiteController {
 	
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(required=true)Integer id) {
+		SiteBo siteBo = siteService.getById(id);
+		for (SecteurBo secteurBo : siteBo.getSecteurBos() ) {
+			secteurService.deleteById(secteurBo.getId());
+		}
+	
 		siteService.deleteById(id);
 		
 		return "redirect:/site/liste.html";

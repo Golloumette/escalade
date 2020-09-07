@@ -50,7 +50,7 @@ public class VoieController {
 	@RequestMapping("/update")
 	
 	public String update(HttpServletRequest request) {
-		System.out.println("methode update");
+		System.out.println("methode update controller voie");
 		String id = request.getParameter("id");
 		String nom = request.getParameter("nom");
 		String cotation = request.getParameter("cotation");
@@ -87,13 +87,11 @@ public class VoieController {
 
 }
 	@RequestMapping("/delete")
-	public String delete(@RequestParam (required=true) Integer id) {
-		
-		
+	public String delete(@RequestParam (required=true) Integer id) {	
 			voieService.deleteById(id);
 		
 		
-		return "redirect:/utilisateur/liste.html";
+		return "redirect:/site/liste.html";
 }
 	@RequestMapping("/maj")
 	public String maj(){

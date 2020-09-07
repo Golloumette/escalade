@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure (HttpSecurity http) throws Exception {
 		System.out.println("test spring ");
 		http.authorizeRequests()
-		  .antMatchers("/utilisateur/liste.html").hasAnyRole("ASSO")
+		  .antMatchers("/utilisateur/liste.html").hasAnyRole("ASSO","USER")
            .antMatchers("/**").permitAll()
            .and()
            .formLogin().loginPage("/login.html")
