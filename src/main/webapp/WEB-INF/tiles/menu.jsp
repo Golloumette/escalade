@@ -1,36 +1,70 @@
-<div class="container">
-	<div class="row">
-		<div class="col-1">
-			<ul class="nav">
-				<li class="nav-item">
-    
-    <h4>MENU</h4>
-  <li> <a class="btn btn-info" href="/escalade/accueil.html" role="button" >Accueil</a></li>
-  <li> <a class="btn btn-info" href="/escalade/utilisateur/ajouter.html" role="button" >Inscription</a></li>
-   <li>   <a class="btn btn-info" href="/escalade/site/liste.html" role="button" >Site</a></li>
-   <li>  <a class="btn btn-info" href="/escalade/topo/liste.html" role="button" >Topo</a></li>
-    <li>  <a class="btn btn-info" href="/escalade/utilisateur/liste.html" role="button" >Liste utilisateur</a></li>
+<div class="container-fluid">
+<nav class="col navbar navbar-expand-lg navbar-light" style="background-color: #805231;">
+<a class="navbar-brand" > Les amis de l'escalade </a> 
+  <i class="fas fa-mountain"></i>
+	 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+ 	 </button>
+ 				<div class="collapse navbar-collapse" id="navbarSupportedContent">		
+				<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+                <a class="nav-link " href="/escalade/accueil.html">Accueil <i class="fas fa-mountain"> </i></a>
+              </li>  
+             
+       <li class="nav-item active">
+       
+                <a class="nav-link " href="/escalade/site/liste.html">Site <i class="fas fa-mountain"> </i></a>
  
+              </li>
+       <li class="nav-item active" >
+                <a class="nav-link" href="/escalade/utilisateur/ajouter.html">Inscription <i class="fas fa-mountain"> </i></a>
+          </li>
+        <li class="nav-item active" >
+                <a class="nav-link"   href="/escalade/topo/liste.html">Liste des topos <i class="fas fa-mountain"> </i></a>
+          </li>
+          
+           <c:if test="${not empty pageContext.request.userPrincipal}" >
+          <li class="nav-item active">
+                <a class="nav-link" href="/escalade/utilisateur/liste.html">Liste des utilisateurs <i class="fas fa-mountain"> </i></a>
+          </li>      
+          <li class="nav-item active">
+                <a class="nav-link" href="/escalade/topo/mestopos.html">Mes topos <i class="fas fa-mountain"> </i></a>
+          </li>
+           </c:if>
+          
+	</ul>
+	
+	 <c:if test="${empty pageContext.request.userPrincipal}">
+        
+        <form action="${pageContext.request.contextPath}/login.html" method="post">
+        
+        <div>
+        <label>Login:    </label>
+        <input type="text" name="username"/>
+       
+       
+        <label>Password:</label>
+        <input type="password" name="password"/>
+      
    
-   </ul>
-		<div>
-		<form action="${pageContext.request.contextPath}/login.html" method="post">
-		<div>
-		<label>login:</label>
-		<input type="text" name="username"/>
-		</div>
-		<div>
-		<label>Password</label>
-		<input type="password" name="password"/>
-		</div>
-		<div>
-		<input type="submit" value="login"/>
-		</div>
-		
-		</form>
-		</div>
-
+        <input type="submit" value="login"/>
+        </div>
+        
+        </form>
+        
+        </c:if>
+        
+        </div>
+        <div>
+        <c:if test="${not empty pageContext.request.userPrincipal}" >
+        
+        
+        <a class="btn btn-info" href="${pageContext.request.contextPath}/logout.html" role="button">Deconnexion</a>
+        </c:if>
 </div>
-      </div>
-    </div>
-   
+</nav>
+</div>
+
+    
+  		
+  	

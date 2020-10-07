@@ -38,7 +38,8 @@ public class SecteurController {
 	}
 
 	@RequestMapping("/edit")
-	public ModelAndView edit(@RequestParam(required=false) Integer id) {
+	public ModelAndView edit(@RequestParam(required=false) Integer id,@RequestParam(required=false) Integer site_id) {
+		
 		ModelAndView mv2 = new ModelAndView("secteur/edit");
 		if(id!=null) {
 			SecteurBo secteurBo = secteurService.getById(id);
@@ -46,6 +47,11 @@ public class SecteurController {
 		}
 		List<SiteBo> siteBos = siteService.liste();
 		mv2.addObject("siteBos",siteBos);
+		if(site_id!=null) {
+		SiteBo siteBo = siteService.getById(site_id);
+		mv2.addObject("siteSelectedBo",siteBo);
+		}
+		
 		return mv2;
 		}
 

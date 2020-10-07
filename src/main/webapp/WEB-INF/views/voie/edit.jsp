@@ -37,8 +37,8 @@
 				<div>
 				<label for="site-select">Est ce qu'il s'agit d'un site equipe ?</label>	
 				<select name="equipe" >
-				<option value="oui">oui</option>
-				<option value="non">non</option>
+				<option value="true">oui</option>
+				<option value="false">non</option>
 				
 				</select>
 				</div>
@@ -52,9 +52,9 @@
 				
 						<c:if test="${empty voieBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
 						<c:if test="${not empty voieBo.id}"><button type="submit" class="btn btn-primary">Modifier la voie ${voieBo.nom}</button></c:if>
-						<c:if test="${not empty voieBo.id}"><button type="button" class="btn btn-primary" onclick="if(confirm('Voulez vous supprimer la voie ${voieBo.nom} ?')){window.location='delete.html?id=${voieBo.id}';}">Supprimer la voie${voieBo.nom}</button>
+						<c:if test="${not empty voieBo.id}"><button type="button" class="btn btn-primary" onclick="if(confirm('Voulez vous supprimer la voie ?')){window.location='delete.html?id=${voieBo.id}';}">Supprimer la voie</button>
 				</c:if>
-				</div>
+				  </div>
 		
 			</form>
 	

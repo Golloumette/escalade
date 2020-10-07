@@ -16,7 +16,15 @@
 			<td>${utilisateurBo.ville}</td>
 			<td>${utilisateurBo.mail}</td>
 			<td>${utilisateurBo.tel}</td>
-			<td>${utilisateurBo.role}</td> 
+			
+			<c:if test="${utilisateurBo.role== 1}">
+			<td>utilisateur</td>
+			</c:if>
+			
+			
+			<c:if test="${utilisateurBo.role==2}">
+			<td>admin</td>
+			</c:if>
 			
 		</tr>
 </c:forEach>

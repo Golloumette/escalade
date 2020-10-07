@@ -41,7 +41,7 @@ public class SecteurServiceImpl implements SecteurService {
 	}
 	@Override
 	public SecteurBo getById(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return secteurDao.getById(id);
 	}
 	@Override

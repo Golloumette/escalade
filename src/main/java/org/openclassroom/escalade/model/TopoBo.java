@@ -1,10 +1,15 @@
 package org.openclassroom.escalade.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name="topo")
@@ -13,9 +18,9 @@ public class TopoBo {
 	private String nom;
 	private String description;
 	private String lieu;
-	private String dt_parution;
-	private String utilisateur_id;
-	
+	private Date dt_parution;
+	private Boolean disponible;
+	private UtilisateurBo utilisateurBo;
 	
 	
 	@Id
@@ -44,19 +49,33 @@ public class TopoBo {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-	public String getDt_parution() {
+	/*public String getDt_parution() {
 		return dt_parution;
 	}
 	public void setDt_parution(String dt_parution) {
 		this.dt_parution = dt_parution;
-	}
+	}*/
 	public Boolean getDisponible() {
 		return disponible;
+	}
+	public Date getDt_parution() {
+		return dt_parution;
+	}
+	public void setDt_parution(Date dt_parution) {
+		this.dt_parution = dt_parution;
 	}
 	public void setDisponible(Boolean disponible) {
 		this.disponible = disponible;
 	}
-	private Boolean disponible;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="utilisateur_id")
+	public UtilisateurBo getUtilisateurBo() {
+		return utilisateurBo;
+	}
+	public void setUtilisateurBo(UtilisateurBo utilisateurBo) {
+		this.utilisateurBo = utilisateurBo;
+	}
+	
 	
 	
 	

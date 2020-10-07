@@ -16,7 +16,11 @@ public class SiteBo {
 	private Integer id;
 	private String nom;
 	private String lieu;
+	private Boolean officiel;
+	
 	private List<SecteurBo> secteurBos ;
+	//private List<CommentaireBo> commentaireBos;
+	
 	
 	
 	
@@ -47,7 +51,18 @@ public class SiteBo {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-	
-	
+	public Boolean getOfficiel() {
+		return officiel;
+	}
+	public void setOfficiel(Boolean officiel) {
+		this.officiel = officiel;
+	}
+	/*@OneToMany(mappedBy="siteBo")
+	public List<CommentaireBo> getCommentaireBos() {
+		return commentaireBos;
+	}
+	public void setCommentaireBos(List<CommentaireBo> commentaireBos) {
+		this.commentaireBos = commentaireBos;
+	}*/
 
 }

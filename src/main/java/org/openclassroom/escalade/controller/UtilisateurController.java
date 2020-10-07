@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.openclassroom.escalade.business.TopoService;
 import org.openclassroom.escalade.business.UtilisateurService;
+import org.openclassroom.escalade.model.TopoBo;
 import org.openclassroom.escalade.model.UtilisateurBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,6 +22,9 @@ public class UtilisateurController {
 
 	@Autowired
 	private UtilisateurService utilisateurService;
+	
+	@Autowired
+	private TopoService topoService;
 	
 	
 
@@ -103,19 +108,24 @@ public class UtilisateurController {
 		}
 		
 
-		return "redirect:/utilisateur/liste.html";
+		return "redirect:/accueil.html";
 	
 	
 	
 }
 	@RequestMapping("/delete")
 	public String delete(@RequestParam (required=true) Integer id) {
-		
+		UtilisateurBo  utilisateurBo = utilisateurService.getById(id);
+		for(TopoBo topoBo : utilisateurBo.getTopoBos()) {
+			
+			topoService.deleteById(topoBo.getId());
+					
+		}
 		
 			utilisateurService.deleteById(id);
 		
 		
-		return "redirect:/utilisateur/liste.html";
+		return "redirect:/accueil.html";
 	
 }
 	

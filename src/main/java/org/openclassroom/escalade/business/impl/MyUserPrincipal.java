@@ -41,11 +41,15 @@ public class MyUserPrincipal implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("getauthorities");
 		
-       // if (utilisateurBo.getRole() == RoleEnum.ROLE_ASSO.getNum()) {
+        if (utilisateurBo.getRole() == RoleEnum.ROLE_ASSO.getNum()) {
             return AuthorityUtils.createAuthorityList("ROLE_ASSO");
-       // } else {
-          //  return AuthorityUtils.createAuthorityList(RoleEnum.ROLE_USER.getName());
-       // }
+            
+        }else if (utilisateurBo.getRole() == RoleEnum.ROLE_USER.getNum()) {
+        	return AuthorityUtils.createAuthorityList("ROLE_USER");
+        	
+        } else {
+           return AuthorityUtils.createAuthorityList(RoleEnum.ROLE_USER.getName());
+       }
     }
 
     @Override

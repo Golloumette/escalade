@@ -83,6 +83,11 @@ public class LongueurController {
 		}
 		return "redirect:/site/liste.html";
 	}
-	
+	@RequestMapping("/delete")
+	public String delete(@RequestParam(required=true)Integer id) {
+		longueurService.deleteById(id);
+		
+		return "redirect:/site/liste.html";
+	}
 	
 }

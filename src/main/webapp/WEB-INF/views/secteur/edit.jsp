@@ -1,5 +1,5 @@
  <div class="container">
-	<h1>Ajouter un secteur</h1>
+	
 		<form method="post" action="update.html">
 		<input type="hidden" name="id" value="${secteurBo.id}">
 		<c:if test="${empty secteurBo.id}">Ajouter un secteur</c:if>
@@ -18,14 +18,14 @@
 					<input type="text" name="acces" value="${secteurBo.acces}" required class="form-control"/>
 					</div>
 				<label for="site-select">Choisir un site</label>	
-				<select name="site_id" >
+				<select name="site_id" id="site-select" >
 				<c:forEach items="${siteBos}" var="siteBo">
-				<option value="${siteBo.id}" <c:if test="${siteBo.id eq secteurBo.siteBo.id}"> selected </c:if>>${siteBo.nom}</option></c:forEach>
+				<option value="${siteBo.id}" <c:if test="${siteBo.id eq siteSelectedBo.id}"> selected </c:if>>${siteBo.nom}</option></c:forEach>
 				</select>
 				
 				<c:if test="${not empty secteurBo.id}"><button type="submit" class="btn btn-primary">Modifier</button></c:if>
 						<c:if test="${empty secteurBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
-		<c:if test="${not empty secteurBo.id }"><button type="button" class="btn btn-primary" onclick="if (confirm('Are you sure ?')){window.location='delete.html?id=${secteurBo.id }';}">Supprimer le secteur</button>
+		<c:if test="${not empty secteurBo.id }"><button type="button" class="btn btn-primary" onclick="if (confirm('Voulez-vous supprimer ce secteur ?')){window.location='delete.html?id=${secteurBo.id }';}">Supprimer le secteur</button>
 		</c:if>
 			</form>
 	

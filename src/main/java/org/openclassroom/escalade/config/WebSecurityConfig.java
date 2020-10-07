@@ -42,20 +42,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure (HttpSecurity http) throws Exception {
 		System.out.println("test spring ");
 		http.authorizeRequests()
-		  .antMatchers("/utilisateur/liste.html").hasAnyRole("ASSO","USER")
+		  .antMatchers("/utilisateur/liste.html").hasAnyRole("ASSO")
+		  .antMatchers("/topo/mestopos.html").hasAnyRole("ASSO","USER")
+		  .antMatchers("/site/edit.html").hasAnyRole("ASSO","USER")
+		  .antMatchers("/topo/liste.html").hasAnyRole("ASSO","USER")
+		  .antMatchers("/commentaire/edit.html").hasAnyRole("ASSO","USER")
+		  
            .antMatchers("/**").permitAll()
            .and()
            .formLogin().loginPage("/login.html")
+           .successHandler(successHandler())
            .permitAll()
            .defaultSuccessUrl("/")
            .and()
-           .logout().permitAll().logoutSuccessUrl("/")
+           .logout().invalidateHttpSession(true)
+           .logoutUrl("/logout.html")
+           .logoutSuccessUrl("/accueil.html")
            .and()
            .csrf().disable();
           
     
 		 
 	}
+	
+	@Bean
+	public CustomSuccessHandler successHandler() {
+	    return new CustomSuccessHandler();
+	}
+
 	
 	
 

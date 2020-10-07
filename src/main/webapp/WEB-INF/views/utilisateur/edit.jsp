@@ -46,6 +46,15 @@
 			<label for="tel">Telephone</label> <input type="tel" name="tel"
 				value="${utilisateurBo.tel}" class="form-control" />
 		</div>
+		<div>
+				<label for="site-select">Changer le role</label>	
+				<select name="role" value="${utilisateurBo.role}" >
+				<option value="1">utilisateur</option>
+				<option value="2">admin</option>			
+				</select>
+				</div>
+		
+			
 
 		<c:if test="${empty utilisateurBo.id}">
 			<button type="submit" class="btn btn-primary">Ajouter</button>

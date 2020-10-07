@@ -39,13 +39,14 @@ public class VoieDaoImpl implements VoieDao{
 	}
 	
 	@Override
-	public VoieBo deleteById(Integer id) {
+	public void deleteById(Integer id) {
 EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
-		em.remove(VoieBo.class);
+		VoieBo voieBo = em.find(VoieBo.class, id);
+		em.remove(voieBo);
 		em.getTransaction().commit();
-		return null;
+	
 		
 	}
 	

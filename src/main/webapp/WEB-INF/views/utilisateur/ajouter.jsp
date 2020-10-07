@@ -42,12 +42,17 @@
 					<input type="text" name="ville" required class="form-control"/>
 				</div>
 				<div class="form-group">
+					<i class="fas fa-at"></i>
 					<label for="mail">Email</label>
 					<input type="email" name="mail" required class="form-control" />
 				</div>
 				<div class="form-group">
+					<i class="fas fa-mobile-alt"></i>
 					<label for="tel">Telephone</label>
 					<input type="tel" name="tel" class="form-control" />
+				</div>
+				<div >
+				<input type="hidden" name="role" value=1>
 				</div>
 			
 			

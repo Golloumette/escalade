@@ -32,8 +32,8 @@ public class VoieServiceImpl implements VoieService {
 	}
 
 	@Override
-	public VoieBo deleteById(Integer id) {
-		return voieDao.deleteById(id);
+	public void deleteById(Integer id) {
+		voieDao.deleteById(id);
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public class SiteController {
 		mv.addObject("site", "Bonjour , voici les sites");
 		return mv;
 	}
-	
+
 	//modifier un site existant selectionner par ID et afficher les secteurs
 	@RequestMapping("/edit")
 	public ModelAndView edit(@RequestParam (required=false) Integer id) {
@@ -49,18 +49,18 @@ public class SiteController {
 		if (id!= null) {
 			SiteBo	siteBo = siteService.getById(id);
 			mv2.addObject("siteBo", siteBo);
-			
+
 			List<SecteurBo> secteurBos= secteurService.liste(id);
 			mv2.addObject("secteurBos", secteurBos);
-			
+
 			List<VoieBo> voieBos= voieService.liste(id);
 			mv2.addObject("voieBos", voieBos);
-			
+
 			List<LongueurBo> longueurBos= longueurService.liste(id);
 			mv2.addObject("longeurBos",longueurBos);
-			
+
 		}
-		
+
 		mv2.addObject("secteur", "Détail du site secteur,voie et longueur");
 		return mv2;
 	}
@@ -71,38 +71,55 @@ public class SiteController {
 		String id = request.getParameter("id");
 		String nom = request.getParameter("nom");
 		String lieu = request.getParameter("lieu");
+		Boolean officiel = Boolean.parseBoolean(request.getParameter("officiel"));
 
-		if (id==null|| id.equals("")) {
+
+		if (id==null|| id.contentEquals("")) {
 			SiteBo siteBo = new SiteBo();
 			siteBo.setNom(nom);
 			siteBo.setLieu(lieu);
+			siteBo.setOfficiel(officiel);
 
 
 			siteService.insertion(siteBo);
-			
+
 		}else {
-		SiteBo siteBo = siteService.getById(Integer.parseInt(id));
-		siteBo.setNom(nom);
-		siteBo.setLieu(lieu);
-		
-		siteService.update(siteBo);
+			SiteBo siteBo = siteService.getById(Integer.parseInt(id));
+			siteBo.setNom(nom);
+			siteBo.setLieu(lieu);
+			siteBo.setOfficiel(officiel);
+			
+			
+
+			siteService.update(siteBo);
 		}
-		
+
 
 		return "redirect:/site/liste.html";
 	}
-	
+
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(required=true)Integer id) {
 		SiteBo siteBo = siteService.getById(id);
 		for (SecteurBo secteurBo : siteBo.getSecteurBos() ) {
+
+			for(VoieBo voieBo : secteurBo.getVoieBos() ) {
+
+				for(LongueurBo longueurBo : voieBo.getLongueurBos()) {
+					
+					longueurService.deleteById(longueurBo.getId());
+					
+				}
+				voieService.deleteById(voieBo.getId());
+				
+			}
 			secteurService.deleteById(secteurBo.getId());
 		}
-	
+
 		siteService.deleteById(id);
-		
+
 		return "redirect:/site/liste.html";
 	}
-	
-			
+
+
 }

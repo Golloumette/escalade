@@ -1,0 +1,22 @@
+.jumbotron
+{
+background: url('/escalade/images/logo.png') no-repeat center, url('/escalade/images/fonds.jpg') no-repeat right, url('/escalade/images/montagne.jpeg') no-repeat left;
+with:100%;
+height:300px;
+
+	
+}
+.navbar-toggler {
+  
+    background-color: rbg(126,95,74) !important;
+    
+}
+body{
+	font-family:  lucida handwriting, serif !important; 
+}
+.nav-item active {
+
+white-space: nowrap !important;
+	
+	
+}

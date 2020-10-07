@@ -10,7 +10,7 @@ public interface VoieService {
 	public List<VoieBo> liste();
 	public List<VoieBo> liste(Integer id);
 	public VoieBo insertion(VoieBo voieBo);
-	public VoieBo deleteById(Integer id);
+	public void deleteById(Integer id);
 	public VoieBo getById(Integer id);
 	public VoieBo update(VoieBo voieBo);
 

@@ -87,7 +87,7 @@ public class VoieController {
 
 }
 	@RequestMapping("/delete")
-	public String delete(@RequestParam (required=true) Integer id) {	
+	public String delete(@RequestParam(required=true) Integer id) {	
 			voieService.deleteById(id);
 		
 		

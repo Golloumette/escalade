@@ -21,6 +21,7 @@ public class AccueilController {
 	}	
 	
 	@RequestMapping("/login")
+	
 	public String login() {
 		return "login";
 	

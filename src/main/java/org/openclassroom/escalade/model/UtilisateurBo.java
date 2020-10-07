@@ -1,11 +1,14 @@
 package org.openclassroom.escalade.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name="utilisateur")
@@ -21,6 +24,10 @@ public class UtilisateurBo {
 	private String mail;
 	private String tel;
 	private Byte role;
+	private List<TopoBo> topoBos;
+	private List<CommentaireBo> commentaireBos;
+	
+	
 	
 	
 	@Id
@@ -92,11 +99,20 @@ public class UtilisateurBo {
 	public void setRole(Byte role) {
 		this.role = role;
 	}
-	@Override
-	public String toString() {
-		return "UtilisateurBo [Id=" + Id + ", nom=" + nom + ", prenom=" + prenom + ", pseudo=" + pseudo + ", mdp=" + mdp
-				+ ", adresse=" + adresse + ", postal=" + postal + ", ville=" + ville + ", mail=" + mail + ", tel=" + tel
-				+ ", role=" + role + "]";
+	@OneToMany(mappedBy="utilisateurBo")
+	public List<TopoBo> getTopoBos() {
+		return topoBos;
+	}
+	public void setTopoBos(List<TopoBo> topoBos) {
+		this.topoBos = topoBos;
+		
+	}
+	@OneToMany(mappedBy="utilisateurBo")
+	public List<CommentaireBo> getCommentaireBos() {
+		return commentaireBos;
+	}
+	public void setCommentaireBos(List<CommentaireBo> commentaireBos) {
+		this.commentaireBos = commentaireBos;
 	}
 
 

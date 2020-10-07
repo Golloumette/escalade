@@ -8,6 +8,7 @@ import org.openclassroom.escalade.business.TopoService;
 import org.openclassroom.escalade.dao.TopoDao;
 
 import org.openclassroom.escalade.model.TopoBo;
+import org.openclassroom.escalade.model.UtilisateurBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,28 @@ private TopoDao topoDao;
 	public TopoBo update(TopoBo topoBo) {
 		return topoDao.update(topoBo);
 
+	}
+	@Override
+	public void deleteById(Integer id) {
+		topoDao.deleteById(id);
+		
+		
+	}
+	@Override
+	public TopoBo getById(Integer id) {
+		
+		return topoDao.getById(id);
+	}
+	@Override
+	public List<TopoBo> liste(Integer id) {
+		return topoDao.liste(id);
+		
+		
+	}
+	@Override
+	public List<TopoBo> liste(UtilisateurBo utilisateurBo) {
+		// TODO Auto-generated method stub
+		return topoDao.liste(utilisateurBo);
 	}
 	
 	}
