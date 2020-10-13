@@ -26,6 +26,8 @@ public class UtilisateurBo {
 	private Byte role;
 	private List<TopoBo> topoBos;
 	private List<CommentaireBo> commentaireBos;
+	private List<ReservationBo> reservationBos;
+	
 	
 	
 	
@@ -114,6 +116,12 @@ public class UtilisateurBo {
 	public void setCommentaireBos(List<CommentaireBo> commentaireBos) {
 		this.commentaireBos = commentaireBos;
 	}
-
+	@OneToMany(mappedBy="utilisateurBo")
+	public List<ReservationBo> getReservationBos() {
+		return reservationBos;
+	}
+	public void setReservationBos(List<ReservationBo> reservationBos) {
+		this.reservationBos = reservationBos;
+	}
 
 }

@@ -49,12 +49,7 @@ public class TopoBo {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-	/*public String getDt_parution() {
-		return dt_parution;
-	}
-	public void setDt_parution(String dt_parution) {
-		this.dt_parution = dt_parution;
-	}*/
+
 	public Boolean getDisponible() {
 		return disponible;
 	}

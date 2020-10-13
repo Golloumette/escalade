@@ -18,10 +18,10 @@ import javax.persistence.Table;
 public class CommentaireBo {
 	private Integer id;
 	private String text;
-	private Date dt_comment;
+	//private Date dt_comment;
 	
 	private UtilisateurBo utilisateurBo;
-	//private SiteBo siteBo;
+	private SiteBo siteBo;
 	
 	
 	
@@ -40,12 +40,12 @@ public class CommentaireBo {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public Date getDt_comment() {
+	/*public Date getDt_comment() {
 		return dt_comment;
 	}
 	public void setDt_comment(Date dt_comment) {
 		this.dt_comment = dt_comment;
-	}
+	}*/
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="utilisateur_id")
@@ -55,14 +55,14 @@ public class CommentaireBo {
 	public void setUtilisateurBo(UtilisateurBo utilisateurBo) {
 		this.utilisateurBo = utilisateurBo;
 	}
-	/*@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="site_id")
 	public SiteBo getSiteBo() {
 		return siteBo;
 	}
 	public void setSiteBo(SiteBo siteBo) {
 		this.siteBo = siteBo;
-	}*/
+	}
 	
 	
 	

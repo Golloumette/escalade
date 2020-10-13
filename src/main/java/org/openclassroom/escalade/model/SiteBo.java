@@ -19,18 +19,12 @@ public class SiteBo {
 	private Boolean officiel;
 	
 	private List<SecteurBo> secteurBos ;
-	//private List<CommentaireBo> commentaireBos;
+	private List<CommentaireBo> commentaireBos;
 	
 	
 	
 	
-	@OneToMany(mappedBy="siteBo")
-	public List<SecteurBo> getSecteurBos() {
-		return secteurBos;
-	}
-	public void setSecteurBos(List<SecteurBo> secteurBos) {
-		this.secteurBos = secteurBos;
-	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
@@ -55,14 +49,21 @@ public class SiteBo {
 		return officiel;
 	}
 	public void setOfficiel(Boolean officiel) {
-		this.officiel = officiel;
+		this.officiel = officiel;	
 	}
-	/*@OneToMany(mappedBy="siteBo")
+	@OneToMany(mappedBy="siteBo")
+	public List<SecteurBo> getSecteurBos() {
+		return secteurBos;
+	}
+	public void setSecteurBos(List<SecteurBo> secteurBos) {
+		this.secteurBos = secteurBos;
+	}
+	@OneToMany(mappedBy="siteBo")
 	public List<CommentaireBo> getCommentaireBos() {
 		return commentaireBos;
 	}
 	public void setCommentaireBos(List<CommentaireBo> commentaireBos) {
 		this.commentaireBos = commentaireBos;
-	}*/
+	}
 
 }

@@ -137,5 +137,15 @@ public String delete(@RequestParam(required=true)Integer id) {
 	
 	return "redirect:/topo/mestopos.html";
 }
+@RequestMapping("reservation")
+public ModelAndView liste2() {
+	
+	List<TopoBo> topoBos = topoService.liste();
+			ModelAndView mv = new ModelAndView("topo/reservation");
+			mv.addObject("topoBos", topoBos);
+			mv.addObject("topo", "Voici les topos disponibles");
+			return mv;
 
+
+}
 }

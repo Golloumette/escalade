@@ -27,7 +27,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 @Bean
 	 // hasher le mot de passe
 	    public BCryptPasswordEncoder passwordEncoder() {
-		 System.out.println("hasher le mdp");
 	        return new BCryptPasswordEncoder();
 	    };
 
@@ -40,7 +39,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure (HttpSecurity http) throws Exception {
-		System.out.println("test spring ");
 		http.authorizeRequests()
 		  .antMatchers("/utilisateur/liste.html").hasAnyRole("ASSO")
 		  .antMatchers("/topo/mestopos.html").hasAnyRole("ASSO","USER")

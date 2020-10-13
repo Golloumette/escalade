@@ -44,7 +44,7 @@
 	
 		
 		<a class="btn btn-info" href="/escalade/secteur/edit.html?site_id=${siteBo.id}" role="button" >Ajouter un secteur</a>
-		<a class="btn btn-info" href="/escalade/commentaire/edit?site_id=${siteBo.id}" role="button">Ajouter un commentaire</a>
+		<a class="btn btn-info" href="/escalade/commentaire/edit.html?site_id=${siteBo.id}" role="button">Ajouter un commentaire</a>
 		
 </c:if>
 	</div>

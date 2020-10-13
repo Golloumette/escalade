@@ -97,6 +97,11 @@
 	<put-attribute name="body" value="/WEB-INF/views/commentaire/edit.jsp"/>
 	</definition>
 	
+	<definition name="topo/reservation" extends="template">
+	<put-attribute name="title" value="reservation" />
+	<put-attribute name="body" value="/WEB-INF/views/topo/reservation.jsp"/>
+	</definition>
+	
 </tiles-definitions>
 
 

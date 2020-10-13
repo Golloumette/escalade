@@ -30,7 +30,6 @@ public class CommentaireController {
 	private UtilisateurService utilisateurService;
 	
 	@RequestMapping("/edit")
-	
 	public ModelAndView edit(@RequestParam (required=false)Integer id,@RequestParam(required=false) Integer site_id) {
 		System.out.println("controller edit");
 		ModelAndView mv2 = new ModelAndView("commentaire/edit");
@@ -58,33 +57,36 @@ public class CommentaireController {
 		
 		String id = request.getParameter("id");
 		String text = request.getParameter("text");
-		String dt_comment = request.getParameter("dt_comment");
+		//String dt_comment = request.getParameter("dt_comment");
+		
 		
 		if(id==null || id.equals("")) {
 			
 			CommentaireBo commentaireBo = new CommentaireBo();
 			commentaireBo.setText(text);
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			try {
 			commentaireBo.setDt_comment(sdf.parse(dt_comment));
 			} catch (ParseException e) {
 				commentaireBo.setDt_comment(null);
-			}
-			//commentaireBo.setUtilisateurBos(utilisateurBo2);
-			//commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
+			}*/
+			commentaireBo.setUtilisateurBo(utilisateurBo2);
+			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
+			
+			commentaireService.insertion(commentaireBo);
 			
 		} else {
 			
 			CommentaireBo commentaireBo = commentaireService.getById(Integer.parseInt(id));
 			commentaireBo.setText(text);
-			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			try {
 			commentaireBo.setDt_comment(sdf.parse(dt_comment));
 			} catch (ParseException e) {
 				commentaireBo.setDt_comment(null);
-			}
-			//commentaireBo.setUtilisateurBos(utilisateurBo2);
-			//commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
+			}*/
+			commentaireBo.setUtilisateurBo(utilisateurBo2);
+			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
 			
 			commentaireService.update(commentaireBo);
 			
