@@ -1,6 +1,7 @@
 package org.openclassroom.escalade.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name="topo")
@@ -21,6 +23,8 @@ public class TopoBo {
 	private Date dt_parution;
 	private Boolean disponible;
 	private UtilisateurBo utilisateurBo;
+	private List<ReservationBo> reservationBos;
+	
 	
 	
 	@Id
@@ -70,7 +74,13 @@ public class TopoBo {
 	public void setUtilisateurBo(UtilisateurBo utilisateurBo) {
 		this.utilisateurBo = utilisateurBo;
 	}
-	
+	@OneToMany(mappedBy="topoBo")
+	public List<ReservationBo> getReservationBos() {
+		return reservationBos;
+	}
+	public void setReservationBos(List<ReservationBo> reservationBos) {
+		this.reservationBos = reservationBos;
+	}
 	
 	
 	

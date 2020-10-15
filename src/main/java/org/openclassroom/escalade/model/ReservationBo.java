@@ -24,6 +24,8 @@ public class ReservationBo {
 	public void setUtilisateurBo(UtilisateurBo utilisateurBo) {
 		this.utilisateurBo = utilisateurBo;
 	}
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="topo_id")
 	public TopoBo getTopoBo() {
 		return topoBo;
 	}
@@ -42,8 +44,4 @@ public class ReservationBo {
 	public void setValider(Boolean valider) {
 		this.valider = valider;
 	}
-
-	
-	
-
 }
