@@ -81,12 +81,12 @@ public String update(HttpServletRequest request) {
 	String description= request.getParameter("description");
 	String lieu = request.getParameter("lieu");
 	String dt_parution = request.getParameter("dt_parution");
-	Boolean disponible = Boolean.parseBoolean(request.getParameter("disponible"));
+	Byte disponible = Byte.parseByte(request.getParameter("disponible"));
 	
 	
 	if (id==null|| id.equals("")) {
 		
-		System.out.println("topoinsertion"+id);
+		
 		
 	TopoBo topoBo = new TopoBo();
 	topoBo.setNom(nom);
@@ -138,26 +138,6 @@ public String delete(@RequestParam(required=true)Integer id) {
 	
 	return "redirect:/topo/mestopos.html";
 }
-@RequestMapping("/reservation")
-public ModelAndView liste2() {
-	
-	List<TopoBo> topoBos = topoService.liste();
-			ModelAndView mv = new ModelAndView("topo/reservation");
-			mv.addObject("topoBos", topoBos);
-			mv.addObject("topo", "Voici les topos disponibles");
-			
-			return mv;
 
 
-}
-@RequestMapping("/validation")
-	public String validation (HttpServletRequest request) {
-	ReservationBo reservationBo = topoService.insertion(reservationBo);
-	
-	String id = request.getParameter("id");
-	String date = request.getParameter("date");
-	String valider = request.getParameter("valider");
-	
-	return "redirect:/topo/liste.html";
-}
 }

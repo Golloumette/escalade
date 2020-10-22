@@ -21,8 +21,8 @@
 				<div class="form-group">
 					<label for="disponible">Disponible</label>
 					<select name="disponible" value="${topoBo.disponible}">
-					<option value="true">oui</option>
-					<option value="false">non</option>
+					<option value="0">oui</option>
+					<option value="2">non</option>
 					</select>
 					
 					<c:if test="${empty topoBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>

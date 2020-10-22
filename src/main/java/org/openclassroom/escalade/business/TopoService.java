@@ -13,7 +13,7 @@ public interface TopoService {
 	public TopoBo insertion (TopoBo topoBo);
 	public TopoBo update (TopoBo topoBo);
 	public void deleteById(Integer id);
-	public ReservationBo insertion(ReservationBo reservationBo);
+	
 	
 	public List<TopoBo> liste(UtilisateurBo utilisateurBo);
 	

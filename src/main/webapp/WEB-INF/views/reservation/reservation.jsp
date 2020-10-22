@@ -13,7 +13,7 @@
 			<td>${topoBo.lieu}</td>
 			<td><fmt:formatDate pattern = "yyyy-MM-dd" value="${topoBo.dt_parution}"/></td>
 			<td>${topoBo.utilisateurBo.nom}</td>
-			<td><button type="button" class="btn btn-primary" onclick="window.location='validation.html'">Reserver</button>
+			<td><button type="button" class="btn btn-primary" onclick="window.location='waiting.html'">Reserver</button></td>
 			</c:if>
 			</tr>
 	</c:forEach></tbody>

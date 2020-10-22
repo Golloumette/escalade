@@ -1,2 +1,3 @@
-<%@ page pageEncoding="UTF-8" %>
+<div class="container">
 <p>body d'accueil</p>
+</div>

@@ -21,7 +21,7 @@ public class TopoBo {
 	private String description;
 	private String lieu;
 	private Date dt_parution;
-	private Boolean disponible;
+	private Byte disponible;
 	private UtilisateurBo utilisateurBo;
 	private List<ReservationBo> reservationBos;
 	
@@ -52,10 +52,12 @@ public class TopoBo {
 	}
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
-	}
-
-	public Boolean getDisponible() {
+	}	
+	public Byte getDisponible() {
 		return disponible;
+	}
+	public void setDisponible(Byte disponible) {
+		this.disponible = disponible;
 	}
 	public Date getDt_parution() {
 		return dt_parution;
@@ -63,9 +65,7 @@ public class TopoBo {
 	public void setDt_parution(Date dt_parution) {
 		this.dt_parution = dt_parution;
 	}
-	public void setDisponible(Boolean disponible) {
-		this.disponible = disponible;
-	}
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="utilisateur_id")
 	public UtilisateurBo getUtilisateurBo() {

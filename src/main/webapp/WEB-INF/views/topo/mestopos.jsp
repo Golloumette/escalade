@@ -12,10 +12,14 @@
 			<td>${topoBo.description}</td>
 			<td>${topoBo.lieu}</td>
 			<td><fmt:formatDate pattern = "yyyy-MM-dd" value="${topoBo.dt_parution}"/></td>
-			<c:if test="${topoBo.disponible == true}">
+			<c:if test="${topoBo.disponible == 0}">
 			<td>oui</td>
 			</c:if>
-			<c:if test="${topoBo.disponible == false}">
+			<c:if test="${topoBo.disponible == 1}">
+			<td>reservation a valider</td>
+			
+			</c:if>
+			<c:if test="${topoBo.disponible == 2}">
 			<td>non</td>
 			
 			</c:if>

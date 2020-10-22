@@ -97,9 +97,14 @@
 	<put-attribute name="body" value="/WEB-INF/views/commentaire/edit.jsp"/>
 	</definition>
 	
-	<definition name="topo/reservation" extends="template">
+	<definition name="reservation/reservation" extends="template">
 	<put-attribute name="title" value="reservation" />
-	<put-attribute name="body" value="/WEB-INF/views/topo/reservation.jsp"/>
+	<put-attribute name="body" value="/WEB-INF/views/reservation/reservation.jsp"/>
+	</definition>
+	
+	<definition name="reservation/liste" extends="template">
+	<put-attribute name="title" value="liste des reservations" />
+	<put-attribute name="body" value="/WEB-INF/views/reservation/liste.jsp"/>
 	</definition>
 	
 </tiles-definitions>

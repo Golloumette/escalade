@@ -6,7 +6,7 @@ import javax.transaction.Transactional;
 
 import org.openclassroom.escalade.business.TopoService;
 import org.openclassroom.escalade.dao.TopoDao;
-
+import org.openclassroom.escalade.model.ReservationBo;
 import org.openclassroom.escalade.model.TopoBo;
 import org.openclassroom.escalade.model.UtilisateurBo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +58,7 @@ private TopoDao topoDao;
 		// TODO Auto-generated method stub
 		return topoDao.liste(utilisateurBo);
 	}
+	
 	
 	}
 
