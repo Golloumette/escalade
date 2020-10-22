@@ -17,8 +17,14 @@
 			</c:if>
 			<c:if test="${topoBo.disponible == false}">
 			<td>non</td>
-			</c:if>
 			
+			</c:if>
+			<td>
+			<ul><c:forEach items="${topoBo.reservationBos}" var="reservationBo">
+			<li>${reservationBo.id}</li>
+			
+			
+			</c:forEach></ul> </td>
 		</tr>
 		
 		

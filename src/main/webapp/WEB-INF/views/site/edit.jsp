@@ -2,7 +2,7 @@
 
 <div>
 <c:if test="${not empty siteBo}">
-	<h1>Description du site ${siteBo.nom}</h1>
+	<h1>${siteBo.nom}</h1>
 	<h3><c:out value="${secteur}"/></h3>
 	
 	<table class="table table-hover table-striped">
@@ -39,16 +39,33 @@
 			</tr>
 			</c:forEach>
 		</tbody>
-		</table>
-			
-	
 		
+		</table >
+		<c:if test="${not empty siteBo.commentaireBos}">
+		<h3>Commentaires</h3>
+		<table class="table table-sm">
+		<thead><tr><th>Grimpeur</th><th>Commentaire</th></thead>
+		<tbody><c:forEach items="${commentaireBos}" var="commentaireBo">
+		<tr><td>${commentaireBo.utilisateurBo.nom}</td>
+		<td>${commentaireBo.text} <i class="fas fa-trash-alt" onclick="window.location='deleteC.html?id=${commentaireBo.id}'"></i>
+		<a href="/escalade/commentaire/edit.html?site_id=${siteBo.id}"><i class="fas fa-edit" ></i></a>
+		</td>
+		</tr>
+		</c:forEach>
+		
+	
+		 </tbody>
+		 </table>
+		  </c:if>
 		<a class="btn btn-info" href="/escalade/secteur/edit.html?site_id=${siteBo.id}" role="button" >Ajouter un secteur</a>
+		<a class="btn btn-info" href="/escalade/voie/edit.html?site_id=${siteBo.id}" role="button">Ajouter une voie</a>
+		<a class="btn btn-info" href="/escalade/longueur/edit.html?site_id=${siteBo.id}" role="button">Ajouter une longueur</a>
 		<a class="btn btn-info" href="/escalade/commentaire/edit.html?site_id=${siteBo.id}" role="button">Ajouter un commentaire</a>
 		
-</c:if>
-	</div>
-	<div>
+		
+	</c:if>	
+		</div>
+		<div>
 		<form method="post" action="update.html">
 		<input type= "hidden" name="id" value="${siteBo.id}">
 		<c:if test="${empty siteBo.id}"><h1>Ajouter un site</h1></c:if>
@@ -76,7 +93,7 @@
 				
 	<c:if test="${not empty siteBo.id}">
 				<button type="button" class="btn btn-info" onclick="window.location='delete.html?id=${siteBo.id}'">Supprimer le site</button>
-			</c:if>
+	</c:if>
 					
 			</form>
 	

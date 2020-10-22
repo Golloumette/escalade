@@ -11,9 +11,9 @@
 			<td><a href="/escalade/topo/edit.html?id=${topoBo.id}">${topoBo.nom}</a></td>
 			<td>${topoBo.description}</td>
 			<td>${topoBo.lieu}</td>
-			<td>${topoBo.dt_parution}</td>
+			<td><fmt:formatDate pattern = "yyyy-MM-dd" value="${topoBo.dt_parution}"/></td>
 			<td>${topoBo.utilisateurBo.nom}</td>
-			<td><button type="button" class="btn btn-primary" onclick="validation.html">Reserver</button>
+			<td><button type="button" class="btn btn-primary" onclick="window.location='validation.html'">Reserver</button>
 			</c:if>
 			</tr>
 	</c:forEach></tbody>

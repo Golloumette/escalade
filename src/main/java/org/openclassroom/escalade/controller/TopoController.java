@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.openclassroom.escalade.business.TopoService;
 import org.openclassroom.escalade.business.UtilisateurService;
+import org.openclassroom.escalade.model.ReservationBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.TopoBo;
 import org.openclassroom.escalade.model.UtilisateurBo;
@@ -137,15 +138,26 @@ public String delete(@RequestParam(required=true)Integer id) {
 	
 	return "redirect:/topo/mestopos.html";
 }
-@RequestMapping("reservation")
+@RequestMapping("/reservation")
 public ModelAndView liste2() {
 	
 	List<TopoBo> topoBos = topoService.liste();
 			ModelAndView mv = new ModelAndView("topo/reservation");
 			mv.addObject("topoBos", topoBos);
 			mv.addObject("topo", "Voici les topos disponibles");
+			
 			return mv;
 
 
+}
+@RequestMapping("/validation")
+	public String validation (HttpServletRequest request) {
+	ReservationBo reservationBo = topoService.insertion(reservationBo);
+	
+	String id = request.getParameter("id");
+	String date = request.getParameter("date");
+	String valider = request.getParameter("valider");
+	
+	return "redirect:/topo/liste.html";
 }
 }

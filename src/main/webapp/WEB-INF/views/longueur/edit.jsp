@@ -1,6 +1,7 @@
 <div class="container">
 
 		<form method="post" action="update.html">
+		<input type="hidden" name="id" value="${longueurBo.id}">
 	<h1><c:if test="${empty longueurBo.id}">Ajouter une longueur</c:if></h1>
 	<h1><c:if test="${not empty longueurBo.id}">Modifier/Supprimer une longueur</c:if></h1>
 				<div class="form-group">
@@ -45,7 +46,7 @@
 					
 				
 						<c:if test="${not empty longueurBo.id}"><button type="submit" class="btn btn-primary">Modifier</button></c:if>
-							<c:if test="${empty longueurBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
+						<c:if test="${empty longueurBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
 		<c:if test="${not empty longueurBo.id }"><button type="button" class="btn btn-primary" onclick="if (confirm('Voulez-vous supprimer cette longueur ?')){window.location='delete.html?id=${longueurBo.id }';}">Supprimer la longueur</button>
 		</c:if>
 		

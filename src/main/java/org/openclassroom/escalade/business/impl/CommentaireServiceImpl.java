@@ -1,5 +1,7 @@
 package org.openclassroom.escalade.business.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.openclassroom.escalade.business.CommentaireService;
@@ -37,6 +39,12 @@ public class CommentaireServiceImpl implements CommentaireService {
 	public CommentaireBo update(CommentaireBo commentaireBo) {
 		
 		return commentaireDao.update(commentaireBo);
+	}
+
+	@Override
+	public List<CommentaireBo> liste(Integer id) {
+		
+		return commentaireDao.liste(id);
 	}
 
 }

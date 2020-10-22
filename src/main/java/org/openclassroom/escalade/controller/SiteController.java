@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.openclassroom.escalade.business.CommentaireService;
 import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.SiteService;
 import org.openclassroom.escalade.business.VoieService;
+import org.openclassroom.escalade.model.CommentaireBo;
 import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.SiteBo;
@@ -30,6 +32,8 @@ public class SiteController {
 	private VoieService voieService;
 	@Autowired
 	private LongueurService longueurService;
+	@Autowired
+	private CommentaireService commentaireService;
 
 	//affiche la liste des sites
 	@RequestMapping("/liste")
@@ -58,7 +62,9 @@ public class SiteController {
 
 			List<LongueurBo> longueurBos= longueurService.liste(id);
 			mv2.addObject("longeurBos",longueurBos);
-
+			
+			List<CommentaireBo> commentaireBos= commentaireService.liste(id);
+			mv2.addObject("commentaireBos", commentaireBos);
 		}
 
 		mv2.addObject("secteur", "Détail du site secteur,voie et longueur");
@@ -121,5 +127,10 @@ public class SiteController {
 		return "redirect:/site/liste.html";
 	}
 
-
+	@RequestMapping("/deleteC")
+	public String deleteC(@RequestParam(required=true)Integer id) {
+		commentaireService.deleteById(id);
+		
+		return "redirect:/site/liste.html";
+	}
 }

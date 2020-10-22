@@ -10,7 +10,7 @@
 			<td><a href="/escalade/topo/edit.html?id=${topoBo.id}">${topoBo.nom}</a></td>
 			<td>${topoBo.description}</td>
 			<td>${topoBo.lieu}</td>
-			<td>${topoBo.dt_parution}</td>
+			<td><fmt:formatDate pattern = "yyyy-MM-dd" value="${topoBo.dt_parution}"/></td>
 			<c:if test="${topoBo.disponible == true}">
 			<td>oui</td>
 			</c:if>

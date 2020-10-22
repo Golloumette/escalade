@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -11,11 +14,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name="reservation")
 public class ReservationBo {
+	private Integer id;
+	
 	private UtilisateurBo utilisateurBo;
 	private TopoBo topoBo;
 	private Date dt_reservation;
-	private Boolean valider;
+	private Byte valider;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="utilisateur_id")
 	public UtilisateurBo getUtilisateurBo() {
@@ -38,10 +51,11 @@ public class ReservationBo {
 	public void setDt_reservation(Date dt_reservation) {
 		this.dt_reservation = dt_reservation;
 	}
-	public Boolean getValider() {
+	public Byte getValider() {
 		return valider;
 	}
-	public void setValider(Boolean valider) {
+	public void setValider(Byte valider) {
 		this.valider = valider;
 	}
+	
 }

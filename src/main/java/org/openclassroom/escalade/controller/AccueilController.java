@@ -9,28 +9,29 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class AccueilController {
-	@RequestMapping("/accueil")
-	public ModelAndView accueil(HttpServletRequest request)
-{
-		if (request.getUserPrincipal()!=null)
+			@RequestMapping("/accueil")
+			public ModelAndView accueil(HttpServletRequest request)
+			{
+			if (request.getUserPrincipal()!=null)
 
-		System.out.println(request.getUserPrincipal().getName());
+			System.out.println(request.getUserPrincipal().getName());
 
-		ModelAndView mv = new ModelAndView("accueil");
-		return mv;
-	}	
+			ModelAndView mv = new ModelAndView("accueil");
+			return mv;
+			}	
 	
-	@RequestMapping("/login")
+			@RequestMapping("/login")
 	
-	public String login() {
-		return "login";
+			public String login() {
+			return "login";
 	
-	}
-	@RequestMapping("/")
-	public ModelAndView index(HttpServletRequest request) {
-	ModelAndView mv = new ModelAndView("accueil");
-	return mv;
-	}
+			}
+	
+			@RequestMapping("/")
+			public ModelAndView index(HttpServletRequest request) {
+			ModelAndView mv = new ModelAndView("accueil");
+			return mv;
+			}
 
 
 }

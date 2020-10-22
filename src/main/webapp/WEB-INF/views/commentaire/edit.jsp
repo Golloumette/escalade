@@ -8,9 +8,9 @@
  		<div class="form-group">
  		<label for="commentaire"></label>
  		
- 		<input type="text" name="commentaire" value="${commentaireBo.text}" >
+ 		<input type="text" name="text" value="${commentaireBo.text}" >
  		</div>
- 		<input type="date" name="dt_comment" value="${commentaireBo.dt_comment}">
+ 		${commentaireBo.dt_comment}
  	
  		<button type="submit" class="btn btn-info">Ajouter</button>
 	</form>

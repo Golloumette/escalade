@@ -56,7 +56,6 @@ public class LongueurController {
 	
 	@RequestMapping("/update")
 	public String update(HttpServletRequest request) {
-		System.out.println("methode update controller longueur");
 		String id = request.getParameter("id");
 		String nom = request.getParameter("nom");
 		String cotation = request.getParameter("cotation");
@@ -79,6 +78,7 @@ public class LongueurController {
 			longueurBo.setSubdivision(subdivision);
 			longueurBo.setSpit(spit);
 			longueurBo.setVoieBo(voieService.getById(Integer.parseInt(request.getParameter("voie_id"))));
+			
 			longueurService.update(longueurBo);
 		}
 		return "redirect:/site/liste.html";

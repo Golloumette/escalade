@@ -7,10 +7,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.SiteService;
+import org.openclassroom.escalade.business.VoieService;
+import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.SiteBo;
+import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +30,12 @@ public class SecteurController {
 	
 	@Autowired
 	private SiteService siteService;
+	
+	@Autowired
+	private LongueurService longueurService;
+	
+	@Autowired
+	private VoieService voieService;
 
 	@RequestMapping("/liste")
 	public ModelAndView liste() {
@@ -88,6 +98,18 @@ public class SecteurController {
 	}
 		@RequestMapping("/delete")
 		public String delete(@RequestParam(required=true)Integer id) {
+			SecteurBo secteurBo = secteurService.getById(id);
+				for(VoieBo voieBo : secteurBo.getVoieBos() ) {
+
+					for(LongueurBo longueurBo : voieBo.getLongueurBos()) {
+					
+					longueurService.deleteById(longueurBo.getId());
+					
+				}
+				voieService.deleteById(voieBo.getId());
+				
+			}
+			
 			secteurService.deleteById(id);
 			
 			return "redirect:/site/liste.html";

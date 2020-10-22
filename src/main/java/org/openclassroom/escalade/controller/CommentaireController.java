@@ -2,6 +2,7 @@ package org.openclassroom.escalade.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.openclassroom.escalade.business.CommentaireService;
@@ -37,13 +38,13 @@ public class CommentaireController {
 			CommentaireBo commentaireBo = commentaireService.getById(id);
 			mv2.addObject("commentaireBo",commentaireBo);
 		}
-		List<SiteBo> siteBos = siteService.liste();
-		mv2.addObject("siteBos",siteBos);
-		if(site_id!=null) {
-		SiteBo siteBo = siteService.getById(site_id);
-		mv2.addObject("siteSelectedBo",siteBo);
-		}
 		
+		if(site_id!=null){
+		SiteBo siteBo = siteService.getById(site_id);
+		if(siteBo!=null) {
+		mv2.addObject("siteBo",siteBo);
+		}	}
+		//penser à ajouter un redirect avec message d'erreur
 		return mv2;
 		}
 
@@ -57,20 +58,18 @@ public class CommentaireController {
 		
 		String id = request.getParameter("id");
 		String text = request.getParameter("text");
-		//String dt_comment = request.getParameter("dt_comment");
+		
 		
 		
 		if(id==null || id.equals("")) {
 			
+			
 			CommentaireBo commentaireBo = new CommentaireBo();
 			commentaireBo.setText(text);
-			/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-			try {
-			commentaireBo.setDt_comment(sdf.parse(dt_comment));
-			} catch (ParseException e) {
-				commentaireBo.setDt_comment(null);
-			}*/
+			commentaireBo.setDt_comment(new Date());
+			
 			commentaireBo.setUtilisateurBo(utilisateurBo2);
+			
 			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
 			
 			commentaireService.insertion(commentaireBo);
@@ -79,12 +78,9 @@ public class CommentaireController {
 			
 			CommentaireBo commentaireBo = commentaireService.getById(Integer.parseInt(id));
 			commentaireBo.setText(text);
-			/*SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-			try {
-			commentaireBo.setDt_comment(sdf.parse(dt_comment));
-			} catch (ParseException e) {
-				commentaireBo.setDt_comment(null);
-			}*/
+			
+			commentaireBo.setDt_comment(new Date());
+			
 			commentaireBo.setUtilisateurBo(utilisateurBo2);
 			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
 			
@@ -96,6 +92,7 @@ public class CommentaireController {
 	}
 	
 	@RequestMapping("/delete")
+	
 	public String delete(@RequestParam(required=true)Integer id) {
 		commentaireService.deleteById(id);
 		

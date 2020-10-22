@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.VoieService;
+import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class VoieController {
 	@Autowired
 	private SecteurService secteurService;
 	
+	@Autowired
+	private LongueurService longueurService;
 	
 	@RequestMapping("/liste")
 	public ModelAndView liste() {
@@ -77,8 +81,8 @@ public class VoieController {
 			voieBo.setCotation(Integer.parseInt(cotation));
 			voieBo.setSubdivision(subdivision);
 			voieBo.setEquipe(equipe);
-		
 			voieBo.setSecteurBo(secteurService.getById(Integer.parseInt(request.getParameter("secteur_id"))));
+			
 			voieService.update(voieBo);
 		}
 
@@ -88,11 +92,17 @@ public class VoieController {
 }
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(required=true) Integer id) {	
+		VoieBo voieBo = voieService.getById(id);
+			for(LongueurBo longueurBo : voieBo.getLongueurBos()) {
+			
+			longueurService.deleteById(longueurBo.getId());
+			}
 			voieService.deleteById(id);
 		
 		
-		return "redirect:/site/liste.html";
-}
+			return "redirect:/site/liste.html";
+			}
+	
 	@RequestMapping("/maj")
 	public String maj(){
 		System.out.println("maj ok");

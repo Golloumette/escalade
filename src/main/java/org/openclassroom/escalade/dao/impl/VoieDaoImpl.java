@@ -53,6 +53,7 @@ EntityManager em = emf.createEntityManager();
 	@Override
 	public VoieBo update(VoieBo voieBo) {
 		EntityManager em = emf.createEntityManager();
+		
 		em.getTransaction().begin();
 		em.merge(voieBo);
 		em.getTransaction().commit();
