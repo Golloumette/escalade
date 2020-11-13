@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.openclassroom.escalade.business.ReservationService;
 import org.openclassroom.escalade.business.TopoService;
 import org.openclassroom.escalade.business.UtilisateurService;
+import org.openclassroom.escalade.enume.DispoEnum;
+import org.openclassroom.escalade.enume.ValidEnum;
 import org.openclassroom.escalade.model.ReservationBo;
 import org.openclassroom.escalade.model.TopoBo;
 import org.openclassroom.escalade.model.UtilisateurBo;
@@ -36,18 +38,6 @@ private ReservationService reservationService;
 		mv.addObject("reservationBos", reservationBos);
 		return mv;
 	}
-	@RequestMapping("/reservation")
-	public ModelAndView liste2() {
-		
-		List<TopoBo> topoBos = topoService.liste();
-				ModelAndView mv = new ModelAndView("topo/reservation");
-				mv.addObject("topoBos", topoBos);
-				mv.addObject("topo", "Voici les topos disponibles");
-				
-				return mv;
-
-
-	}
 	
 	@RequestMapping("/waiting")
 	public String waiting(HttpServletRequest request) {
@@ -75,14 +65,18 @@ private ReservationService reservationService;
 		return "redirect:/topo/liste.html";
 		
 	}
-	@RequestMapping("/validation")
-	public String validation(HttpServletRequest request) {
-		
-		ReservationBo reservationBo = new ReservationBo();
-		reservationService.validation(reservationBo);
-		
+	@RequestMapping("/update")
+	public String update(HttpServletRequest request) {
+			
+		ReservationBo reservationBo = reservationService.validerReservation(Integer.parseInt(request.getParameter("topo_id")));
+		reservationBo.setValider(ValidEnum.Validate.getNum());
+		reservationService.update(reservationBo);
+		TopoBo topoBo = topoService.getById(Integer.parseInt(request.getParameter("topo_id")));
+		topoBo.setDisponible(DispoEnum.Indisponible.getNum());
+		topoService.update(topoBo);
 		
 		return "redirect:/topo/liste.html";
 		
 	}
+	
 }

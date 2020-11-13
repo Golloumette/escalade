@@ -4,6 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.openclassroom.escalade.dao.SecteurDao;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +69,22 @@ public class SecteurDaoImpl implements SecteurDao {
 		EntityManager em = emf.createEntityManager();
 		 SecteurBo secteurBo = em.find(SecteurBo.class, id);
 		return secteurBo;
+	}
+	@Override
+	public List<SecteurBo> liste1(Integer Site_id){
+		EntityManager em = emf.createEntityManager();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<SecteurBo> cq = cb.createQuery(SecteurBo.class);
+		
+		Root<SecteurBo> secteurBo = cq.from(SecteurBo.class);
+		Predicate nbrPredeciate = cb.like(secteurBo.get("site_id"),Site_id);
+		cq.where(nbrPredeciate);
+		
+		TypedQuery<SecteurBo> query = em.createQuery(cq);
+		return query.getResultList();
+		
+		
+	}
 	}
 	
 

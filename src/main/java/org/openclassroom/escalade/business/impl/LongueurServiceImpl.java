@@ -49,5 +49,10 @@ public class LongueurServiceImpl implements LongueurService {
 		// TODO Auto-generated method stub
 		return longueurDao.liste(id);
 	}
+	@Override
+	public List<LongueurBo> liste(String cotation) {
+	
+		return longueurDao.liste(cotation);
+	}
 
 }

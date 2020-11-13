@@ -67,6 +67,7 @@ public class LongueurController {
 			longueurBo.setNom(nom);
 			longueurBo.setCotation(cotation);
 			longueurBo.setSubdivision(subdivision);
+			longueurBo.setSpit(spit);
 			longueurBo.setVoieBo(voieService.getById(Integer.parseInt(request.getParameter("voie_id"))));
 			
 			longueurService.insertion(longueurBo);

@@ -1,4 +1,7 @@
-<div>
+<div class="container">
+<h3 style="text-align: center">Cette page nécessite une authentification </h3>
+<div class=" d-flex justify-content-center " style="max-height: 300px">
+	
 		<form action="${pageContext.request.contextPath}/login.html" method="post">
 		<div>
 		<label>login:</label>
@@ -11,6 +14,7 @@
 		<div>
 		<input type="submit" value="login"/>
 		</div>
-		<p>toto</p>
+	
 		</form>
+		</div>
 		</div>

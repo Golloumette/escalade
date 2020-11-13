@@ -36,6 +36,7 @@ public class CommentaireController {
 		ModelAndView mv2 = new ModelAndView("commentaire/edit");
 		if(id!=null) {
 			CommentaireBo commentaireBo = commentaireService.getById(id);
+			
 			mv2.addObject("commentaireBo",commentaireBo);
 		}
 		
@@ -44,7 +45,7 @@ public class CommentaireController {
 		if(siteBo!=null) {
 		mv2.addObject("siteBo",siteBo);
 		}	}
-		//penser à ajouter un redirect avec message d'erreur
+		
 		return mv2;
 		}
 
@@ -54,49 +55,50 @@ public class CommentaireController {
 	public String update (HttpServletRequest request) {
 		String userLoged2=request.getUserPrincipal().getName();
 		UtilisateurBo utilisateurBo2 = utilisateurService.findByPseudo(userLoged2);
-		
-		
+
 		String id = request.getParameter("id");
-		String text = request.getParameter("text");
-		
-		
+		String text = request.getParameter("text");	
+		String idSite = request.getParameter("site_id");
+		String idSite2 = request.getParameter("idSite");
 		
 		if(id==null || id.equals("")) {
 			
 			
 			CommentaireBo commentaireBo = new CommentaireBo();
 			commentaireBo.setText(text);
-			commentaireBo.setDt_comment(new Date());
-			
-			commentaireBo.setUtilisateurBo(utilisateurBo2);
-			
+			commentaireBo.setDt_comment(new Date());			
+			commentaireBo.setUtilisateurBo(utilisateurBo2);			
 			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
 			
 			commentaireService.insertion(commentaireBo);
-			
+			return "redirect:/site/edit.html?id="+idSite;
 		} else {
 			
 			CommentaireBo commentaireBo = commentaireService.getById(Integer.parseInt(id));
 			commentaireBo.setText(text);
-			
 			commentaireBo.setDt_comment(new Date());
-			
 			commentaireBo.setUtilisateurBo(utilisateurBo2);
-			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("site_id"))));
+			commentaireBo.setSiteBo(siteService.getById(Integer.parseInt(request.getParameter("idSite"))));
 			
 			commentaireService.update(commentaireBo);
 			
 		}
 		
-		return "redirect:/site/liste.html";
+		return "redirect:/site/edit.html?id="+idSite2;
 	}
 	
 	@RequestMapping("/delete")
 	
 	public String delete(@RequestParam(required=true)Integer id) {
+		System.out.println("commentaire+delete");
+		
+		CommentaireBo commentaireBo = commentaireService.getById(id);
+		
+		Integer idSite = commentaireBo.getSiteBo().getId();
+		
 		commentaireService.deleteById(id);
 		
-		return "redirect:/site/liste.html";
+		return "redirect:/site/edit.html?id="+idSite;
 	}
 
 }

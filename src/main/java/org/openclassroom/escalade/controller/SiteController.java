@@ -127,10 +127,24 @@ public class SiteController {
 		return "redirect:/site/liste.html";
 	}
 
-	@RequestMapping("/deleteC")
-	public String deleteC(@RequestParam(required=true)Integer id) {
-		commentaireService.deleteById(id);
+	@RequestMapping("/search")
+	public ModelAndView search(String nom,String lieu,String cotation) {
+
+		List<SiteBo> siteBos= siteService.liste(nom,lieu);
+		/*for(SecteurBo secteurBo : siteBo.getSecteurBos() ) {
+			
+			for(VoieBo voieBo : secteurBo.getVoieBos() ) {
+			
+				for(LongueurBo longueurBo : voieBo.getLongueurBos()) {
+					List<LongueurBo> longueurBos= longueurService.liste(cotation);
+				}
+			}
 		
-		return "redirect:/site/liste.html";
-	}
+		}*/
+		ModelAndView mv = new ModelAndView("site/liste");
+		mv.addObject("siteBos", siteBos);
+		return mv;
+	
+		
 }
+	}

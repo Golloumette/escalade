@@ -11,5 +11,6 @@ public interface LongueurDao {
 	public LongueurBo getById(Integer id);
 	public void deleteById(Integer id);
 	public List<LongueurBo> liste(Integer id);
+	public List<LongueurBo> liste(String cotation);
 
 }

@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.openclassroom.escalade.business.ReservationService;
 import org.openclassroom.escalade.dao.ReservationDao;
+import org.openclassroom.escalade.enume.ValidEnum;
 import org.openclassroom.escalade.model.ReservationBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,9 +30,34 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public ReservationBo validation(ReservationBo reservationBo) {
+	public ReservationBo update(ReservationBo reservationBo) {
 		// TODO Auto-generated method stub
-		return reservationDao.validation(reservationBo);
+		return reservationDao.update(reservationBo);
 	}
 
+	@Override
+	public ReservationBo getById(Integer id) {
+		// TODO Auto-generated method stub
+		return reservationDao.getById(id);
+	}
+
+	@Override
+	public ReservationBo validerReservation (Integer topo_id) {
+		List<ReservationBo> reservationBos = reservationDao.findByTopoAndValid(topo_id,ValidEnum.Waiting.getNum() );
+		return reservationBos.get(0);
+	}
+
+	@Override
+	public ReservationBo findByValider(Byte valider) {
+	
+		return reservationDao.findByValider(valider);
+	}
+
+	@Override
+	public ReservationBo archiveReservation(Integer topo_id) {
+		List<ReservationBo> reservationBos = reservationDao.findByTopoAndValid(topo_id, ValidEnum.Validate.getNum());
+		return reservationBos.get(0);
+	}
+
+	
 }

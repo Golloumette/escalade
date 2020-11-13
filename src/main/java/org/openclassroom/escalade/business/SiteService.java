@@ -12,6 +12,7 @@ public interface SiteService {
 	public SiteBo update (SiteBo siteBo);
 	public SiteBo getById (Integer id);
 	public void deleteById(Integer id);
+	public List<SiteBo> liste(String nom,String lieu);
 
 }
     

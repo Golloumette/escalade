@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 
 import org.openclassroom.escalade.dao.ReservationDao;
 import org.openclassroom.escalade.model.ReservationBo;
+import org.openclassroom.escalade.model.UtilisateurBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -32,7 +33,7 @@ public class ReservationDaoImpl implements ReservationDao {
 	}
 	
 	@Override
-	public ReservationBo validation (ReservationBo reservationBo) {
+	public ReservationBo update (ReservationBo reservationBo) {
 		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
@@ -41,4 +42,26 @@ public class ReservationDaoImpl implements ReservationDao {
 		return reservationBo;
 
 }
+
+	@Override
+	public ReservationBo getById(Integer id) {
+	EntityManager em = emf.createEntityManager();
+	ReservationBo reservationBo = em.find(ReservationBo.class, id);
+		
+		return reservationBo;
+	}   
+
+	@Override
+	public List<ReservationBo> findByTopoAndValid(Integer topo_id,Byte valider) {
+		return  emf.createEntityManager().createQuery("from ReservationBo where topo_id= :topo_id and valider= :valider").setParameter("topo_id", topo_id).setParameter("valider",valider).getResultList();
+		
+	}
+
+	@Override
+	public ReservationBo findByValider(Byte valider) {
+		
+		return (ReservationBo) emf.createEntityManager().createQuery("from ReservationBo where valider= :valider").setParameter("valider", valider).getSingleResult()	;	
+		}
+
+	
 }

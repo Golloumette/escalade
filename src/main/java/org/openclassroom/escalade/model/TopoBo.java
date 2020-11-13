@@ -68,7 +68,7 @@ public class TopoBo {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="utilisateur_id")
-	public UtilisateurBo getUtilisateurBo() {
+		public UtilisateurBo getUtilisateurBo() {
 		return utilisateurBo;
 	}
 	public void setUtilisateurBo(UtilisateurBo utilisateurBo) {
@@ -78,6 +78,7 @@ public class TopoBo {
 	public List<ReservationBo> getReservationBos() {
 		return reservationBos;
 	}
+
 	public void setReservationBos(List<ReservationBo> reservationBos) {
 		this.reservationBos = reservationBos;
 	}

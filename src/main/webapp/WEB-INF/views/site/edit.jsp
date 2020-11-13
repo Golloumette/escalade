@@ -47,8 +47,8 @@
 		<thead><tr><th>Grimpeur</th><th>Commentaire</th></thead>
 		<tbody><c:forEach items="${commentaireBos}" var="commentaireBo">
 		<tr><td>${commentaireBo.utilisateurBo.nom}</td>
-		<td>${commentaireBo.text} <i class="fas fa-trash-alt" onclick="window.location='deleteC.html?id=${commentaireBo.id}'"></i>
-		<a href="/escalade/commentaire/edit.html?site_id=${siteBo.id}"><i class="fas fa-edit" ></i></a>
+		<td>${commentaireBo.text} <i class="fas fa-trash-alt" onclick="window.location='/escalade/commentaire/delete.html?id=${commentaireBo.id}'"></i>
+		<a href="/escalade/commentaire/edit.html?id=${commentaireBo.id}"><i class="fas fa-edit" ></i></a>
 		</td>
 		</tr>
 		</c:forEach>
@@ -57,14 +57,16 @@
 		 </tbody>
 		 </table>
 		  </c:if>
+		<a class="btn btn-info" href="/escalade/commentaire/edit.html?site_id=${siteBo.id}" role="button">Ajouter un commentaire</a>  
 		<a class="btn btn-info" href="/escalade/secteur/edit.html?site_id=${siteBo.id}" role="button" >Ajouter un secteur</a>
 		<a class="btn btn-info" href="/escalade/voie/edit.html?site_id=${siteBo.id}" role="button">Ajouter une voie</a>
 		<a class="btn btn-info" href="/escalade/longueur/edit.html?site_id=${siteBo.id}" role="button">Ajouter une longueur</a>
-		<a class="btn btn-info" href="/escalade/commentaire/edit.html?site_id=${siteBo.id}" role="button">Ajouter un commentaire</a>
+		
 		
 		
 	</c:if>	
 		</div>
+		
 		<div>
 		<form method="post" action="update.html">
 		<input type= "hidden" name="id" value="${siteBo.id}">

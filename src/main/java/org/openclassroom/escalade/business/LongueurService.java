@@ -13,5 +13,6 @@ public interface LongueurService {
 	public LongueurBo update (LongueurBo longueurBo);
 	public LongueurBo getById (Integer id);
 	public void deleteById (Integer id);
+	public List<LongueurBo> liste (String cotation);
 
 }

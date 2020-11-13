@@ -13,14 +13,13 @@
 			<td>${topoBo.lieu}</td>
 			<td><fmt:formatDate pattern = "yyyy-MM-dd" value="${topoBo.dt_parution}"/></td>
 			<c:if test="${topoBo.disponible == 0}">
-			<td>oui</td>
+			<td>disponible</td>
 			</c:if>
 			<c:if test="${topoBo.disponible == 1}">
-			<td>reservation a valider</td>
-			
+			<td><a class="btn btn-info" href="/escalade/reservation/update.html?topo_id=${topoBo.id}" role="button" >Valider la reservation</a></td>
 			</c:if>
 			<c:if test="${topoBo.disponible == 2}">
-			<td>non</td>
+			<td>indisponible</td>
 			
 			</c:if>
 			<td>

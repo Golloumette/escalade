@@ -2,8 +2,14 @@ package org.openclassroom.escalade.dao.impl;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import org.openclassroom.escalade.dao.LongueurDao;
 import org.openclassroom.escalade.model.LongueurBo;
@@ -65,6 +71,20 @@ public class LongueurDaoImpl implements LongueurDao {
 	@Override
 	public List<LongueurBo> liste(Integer id) {
 		return emf.createEntityManager().createQuery("from LongueurBo where voieBo.id= :id").setParameter("id", id).getResultList();
+	}
+
+	@Override
+	public List<LongueurBo> liste(String cotation) {
+		EntityManager em = emf.createEntityManager();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<LongueurBo> cq = cb.createQuery(LongueurBo.class);
+		
+		Root<LongueurBo> longueurBo = cq.from(LongueurBo.class);
+		Predicate cotationPredicate = cb.like(longueurBo.get("cotation"),cotation);
+		cq.where(cotationPredicate);
+		
+		TypedQuery<LongueurBo> query = em.createQuery(cq);
+		return query.getResultList();
 	}
 	
 

@@ -47,8 +47,8 @@
 				
 						<c:if test="${not empty longueurBo.id}"><button type="submit" class="btn btn-primary">Modifier</button></c:if>
 						<c:if test="${empty longueurBo.id}"><button type="submit" class="btn btn-primary">Ajouter</button></c:if>
-		<c:if test="${not empty longueurBo.id }"><button type="button" class="btn btn-primary" onclick="if (confirm('Voulez-vous supprimer cette longueur ?')){window.location='delete.html?id=${longueurBo.id }';}">Supprimer la longueur</button>
-		</c:if>
+						<c:if test="${not empty longueurBo.id }"><button type="button" class="btn btn-primary" onclick="if (confirm('Voulez-vous supprimer cette longueur ?')){window.location='delete.html?id=${longueurBo.id }';}">Supprimer la longueur</button>
+						</c:if>
 		
 		
 			</form>
