@@ -38,7 +38,7 @@ public class JpaConfig {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/escalade?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC");
+		dataSource.setUrl("jdbc:mysql://localhost:3307/escalade?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC");
 		dataSource.setUsername( "root" );
 		dataSource.setPassword( "" );
 		return dataSource;

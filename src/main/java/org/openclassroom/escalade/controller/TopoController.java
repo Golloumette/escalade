@@ -120,13 +120,14 @@ public class TopoController {
 			topoBo.setNom(nom);
 			topoBo.setDescription(description);
 			topoBo.setLieu(lieu);
-			SimpleDateFormat  sdf = new SimpleDateFormat("yyyy-MM-dd");
+			/*SimpleDateFormat  sdf =request.getParameter(dt_parution);
+					//format("yyyy-MM-dd");
 			try {
 				topoBo.setDt_parution(sdf.parse(dt_parution));
 			} catch (ParseException e) {
 				topoBo.setDt_parution(null);
 
-			}
+			}*/
 
 			topoBo.setDisponible(DispoEnum.Disponible.getNum());
 			reservationBo.setValider(ValidEnum.Archive.getNum());

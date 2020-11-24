@@ -8,12 +8,11 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.sun.media.jfxmedia.logging.Logger;
+
 
 import java.util.Collection;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
 
 
 public class MyUserPrincipal implements UserDetails {

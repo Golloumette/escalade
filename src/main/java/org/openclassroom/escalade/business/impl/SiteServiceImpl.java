@@ -45,9 +45,14 @@ private SiteDao siteDao;
 			 siteDao.deleteById(id);
 		}
 		@Override
-		public List<SiteBo> liste(String nom,String lieu) {
+		public List<SiteBo> liste(String nom) {
 			// TODO Auto-generated method stub
-			return siteDao.liste(nom,lieu);
+			return siteDao.liste(nom);
+		}
+		@Override
+		public List<SiteBo> liste(String lieu, Integer nbSecteur, byte cotation) {
+			// TODO Auto-generated method stub
+			return siteDao.listeCotation(lieu, nbSecteur, cotation);
 		}
 
 	

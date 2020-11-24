@@ -19,10 +19,18 @@
 					<label for="description">Description</label>
 					<input type="text" name="description" value="${topoBo.description}" required class="form-control"/>
 					</div>
+					<c:if test="${not empty topoBo.id}">
 				<div class="form-group">
 					<label for="dt_parution">Date de parution</label>
 					<fmt:formatDate pattern  = "yyyy-MM-dd" value="${topoBo.dt_parution}" />
 					</div>
+					</c:if>
+					<c:if test="${empty topoBo.id}">
+				<div class="form_group">
+				<label for="dt_parution">Date de parution</label>
+				<input type="date" name="dt_parution" value="${topoBo.dt_parution}" />			
+				</div>
+				</c:if>
 				<div class="form-group">
 					<label for="disponible">Disponible</label>
 					<select name="disponible" value="${topoBo.disponible}">

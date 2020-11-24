@@ -128,23 +128,22 @@ public class SiteController {
 	}
 
 	@RequestMapping("/search")
-	public ModelAndView search(String nom,String lieu,String cotation) {
-
-		List<SiteBo> siteBos= siteService.liste(nom,lieu);
-		/*for(SecteurBo secteurBo : siteBo.getSecteurBos() ) {
-			
-			for(VoieBo voieBo : secteurBo.getVoieBos() ) {
-			
-				for(LongueurBo longueurBo : voieBo.getLongueurBos()) {
-					List<LongueurBo> longueurBos= longueurService.liste(cotation);
-				}
-			}
-		
-		}*/
+	
+	public ModelAndView search(String nom) {
+		System.out.println("entré methode search"+nom);
+		List<SiteBo> siteBos= siteService.liste(nom);
 		ModelAndView mv = new ModelAndView("site/liste");
 		mv.addObject("siteBos", siteBos);
 		return mv;
 	
 		
 }
+	@RequestMapping("/advanced")
+	public ModelAndView advanced(String lieu,Integer nbSecteur , byte cotation) {
+		System.out.println("entrée méthode avance+"+lieu);
+		List<SiteBo> siteBos=siteService.liste(lieu,nbSecteur,cotation);
+		ModelAndView mv = new ModelAndView("site/liste");
+		mv.addObject("siteBos",siteBos);
+		return mv;
+	}
 	}

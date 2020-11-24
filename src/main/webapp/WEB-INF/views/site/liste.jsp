@@ -5,15 +5,20 @@
 </div>
 <div class="container">
 	<div class="row">
-	<div class="col-lg-12">
+		<div class="col-lg-12">
 	<h1 style="text-align: center"> Liste des sites d'escalades</h1>
-	<div class="form-group">
-	<form action="/escalade/site/search.html" method="post" >
-	<input type="text" class="form-control" name="nom" title="Rechercher un site" placeholder="Rechercher un site"  >
+		<div class="form-group">
+	<form action="/escalade/site/search.html" method="post">
+	<input type="text" class="form-control" name="nom" title="Rechercher un site" placeholder="Rechercher un site">
 	<input type="submit" value="Rechercher" class= "btn btn-info" >
-			<div class="ml-2 input-group-text text-white" style="background-color: #805231;"  data-toggle="collapse" data-target="#advancedSearch"  aria-controls="advancedSearch">
-		<i data-toggle="tooltip" data-placement="bottom" title="Voir la recherche avancée"   class="fas fa-search-plus"></i>
-			</div>
+	
+	</form>
+	</div>
+	<div class="form-group">
+		<form action="/escalade/site/advanced.html" method="post">
+				<div class="ml-2 input-group-text text-white" style="background-color: #805231;"  data-toggle="collapse" data-target="#advancedSearch"  aria-controls="advancedSearch">
+				<i data-toggle="tooltip" data-placement="bottom" title="Voir la recherche avancée"   class="fas fa-search-plus"></i>
+				</div>
 	 
 			<div class="collapse" id="advancedSearch">
                 <div class="card card-body mb-3">
@@ -27,7 +32,7 @@
                       	 <div class="col-12 col-lg-4">
                             	<div class="form-group">
                                 <label class="font-weight-bold" for="site-select">Nombre de secteur</label>
-                                <select class="form-control"  name="secteur">
+                                <select class="form-control"  name="nbSecteur">
                                 	 <option value="1">1-5</option>
 									<option value="2">5-10</option>
 									<option value="3">10+</option>
@@ -36,25 +41,25 @@
                        	</div>
                         <div class="col-12 col-lg-4">
                             <div class="form-group">
-                                <label class="font-weight-bold" for="site-select">Cotation</label>
+                                <label class="font-weight-bold" for="site-select">Cotation de la voie</label>
                                 <select class="form-control"  name="cotation">
-                                  	 <option value="3">3</option>
+                                  	<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
 									<option value="6">6</option>
 									<option value="7">7</option>
 									<option value="8">8</option>
 									<option value="9">9</option>
-                                    
-                                </select>
-                            </div>
-                        </div>
-                        <input type="submit" value="Rechercher" class= "btn btn-info" >
-                        
-                        </div>
+                                   </select>
+                              </div>
+                         </div>   
+                       
+                        <input type="submit" value="Rechercher" class="btn btn-info" >
+                      </div>
+                      
                    </div>
               </div> 
-                    </form>
+                       </form>
                         </div>
      <div class="container">                   
 	<table class="table table-hover table-striped">

@@ -70,7 +70,7 @@ public class SecteurDaoImpl implements SecteurDao {
 		 SecteurBo secteurBo = em.find(SecteurBo.class, id);
 		return secteurBo;
 	}
-	@Override
+	/*@Override
 	public List<SecteurBo> liste1(Integer Site_id){
 		EntityManager em = emf.createEntityManager();
 		CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -83,9 +83,9 @@ public class SecteurDaoImpl implements SecteurDao {
 		TypedQuery<SecteurBo> query = em.createQuery(cq);
 		return query.getResultList();
 		
-		
-	}
+		}
+	*/
 	}
 	
 
-}
+

@@ -80,21 +80,29 @@ public class SiteDaoImpl implements SiteDao {
 		
 	}
 	@Override
-	public List<SiteBo> liste(String nom,String lieu) {
+	public List<SiteBo> liste(String nom){//,String lieu) {
 		EntityManager em = emf.createEntityManager();
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<SiteBo> cq = cb.createQuery(SiteBo.class);
 		
 		Root<SiteBo> siteBo = cq.from(SiteBo.class);
-	//	Join<SiteBo, SecteurBo> secteurBos = siteBo.join("secteur");
 		Predicate nomPredicate = cb.like(siteBo.get("nom"),"%"+ nom + "%");
-		Predicate lieuPredicate = cb.like(siteBo.get("lieu"),"%"+lieu + "%");
-		cq.where(nomPredicate,lieuPredicate);
+		//Predicate lieuPredicate = cb.like(siteBo.get("lieu"),"%"+lieu + "%");
+		cq.where(nomPredicate);//,lieuPredicate);
 		
 		TypedQuery<SiteBo> query = em.createQuery(cq);
 		return query.getResultList();
 	}
 	
-	
+	@Override
+	public List<SiteBo> listeCotation (String lieu, Integer nbSecteur, Byte cotation){
+		String sqlString = "SELECT site.id, site.lieu, count(*) as nb FROM secteur join site on site.id = secteur.site_id join voie on secteur.id = voie.secteur_id WHERE site.lieu LIKE=:%lieu% and voie.cotation=:cotation GROUP BY site_id HAVING nb > 0 and nb < 1000";
+			//	+ "site,secteur,voie WHERE secteur.site_id = site.id and voie.secteur_id = secteur.id and voie.cotation=:cotation and site.lieu=:lieu " ;
+		return emf.createEntityManager().createNativeQuery(sqlString).setParameter("cotation", cotation).setParameter("lieu", lieu).setParameter("nbSecteur", nbSecteur).getResultList();
+		
+		
+		
+		
+	}
 
 }

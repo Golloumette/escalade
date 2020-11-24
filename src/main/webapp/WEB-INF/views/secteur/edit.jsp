@@ -31,10 +31,11 @@
 	
 </div>
 <div>
-<h1>Description du secteur</h1>
-	<h3><c:out value="${voie}"/></h3>
+
 	<c:if test="${not empty voieBos}">
-	<table class="table table-hover table-striped">
+	<h1>Description du secteur</h1>
+	<h3><c:out value="${voie}"/></h3>
+		<table class="table table-hover table-striped">
 	<thead><tr><th>ID</th><th>Nom</th><th>Cotation</th><th>Subdivision</th><th>Equipe</th><th>Secteur</th></tr>
 	<tbody></tbody><c:forEach items="${voieBos}" var="voieBo">
 		<tr>
@@ -48,8 +49,8 @@
 		</tr>
 		</c:forEach>
 	</table>	
-		</c:if>							
+							
 		<a class="btn btn-info" href="/escalade/voie/edit.html" role="button" >Ajouter une voie</a>
-
+</c:if>		
 	</div>
 	
