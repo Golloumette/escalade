@@ -78,5 +78,19 @@ private ReservationService reservationService;
 		return "redirect:/topo/liste.html";
 		
 	}
+	@RequestMapping("/reserve")
+	public ModelAndView reserve(HttpServletRequest request) {
+		String userLoged=request.getUserPrincipal().getName();
+
+		UtilisateurBo utilisateurBo = utilisateurService.findByPseudo(userLoged) ;
+		
+		ModelAndView mv = new ModelAndView("reservation/reserve");
+
+		List<ReservationBo> reservationBos = reservationService.liste(utilisateurBo);
+
+		mv.addObject("reservationBos",reservationBos);	
+
+		return mv;
+	}
 	
 }

@@ -133,17 +133,20 @@ public class SiteController {
 		System.out.println("entré methode search"+nom);
 		List<SiteBo> siteBos= siteService.liste(nom);
 		ModelAndView mv = new ModelAndView("site/liste");
+		
 		mv.addObject("siteBos", siteBos);
+	
 		return mv;
 	
 		
 }
 	@RequestMapping("/advanced")
-	public ModelAndView advanced(String lieu,Integer nbSecteur , byte cotation) {
-		System.out.println("entrée méthode avance+"+lieu);
-		List<SiteBo> siteBos=siteService.liste(lieu,nbSecteur,cotation);
+	public ModelAndView advanced(@RequestParam(required = false)String lieu,@RequestParam(required = false)Integer nbSecteur ,@RequestParam(required = false)Byte cotation) {
+		
+		List<SiteBo> siteBos= siteService.liste(lieu,nbSecteur,cotation);
 		ModelAndView mv = new ModelAndView("site/liste");
 		mv.addObject("siteBos",siteBos);
+	
 		return mv;
 	}
 	}

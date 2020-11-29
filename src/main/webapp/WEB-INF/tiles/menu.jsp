@@ -30,6 +30,9 @@
           <li class="nav-item active">
                 <a class="nav-link" href="/escalade/topo/mestopos.html">Mes topos <i class="fas fa-mountain"> </i></a>
           </li>
+           <li class="nav-item active">
+                <a class="nav-link" href="/escalade/reservation/reserve.html">Mes reservations <i class="fas fa-mountain"> </i></a>
+          </li>
            </c:if>
           
 	</ul>

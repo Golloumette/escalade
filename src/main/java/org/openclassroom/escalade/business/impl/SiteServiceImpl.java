@@ -1,5 +1,6 @@
 package org.openclassroom.escalade.business.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -50,9 +51,16 @@ private SiteDao siteDao;
 			return siteDao.liste(nom);
 		}
 		@Override
-		public List<SiteBo> liste(String lieu, Integer nbSecteur, byte cotation) {
-			// TODO Auto-generated method stub
-			return siteDao.listeCotation(lieu, nbSecteur, cotation);
+		public List<SiteBo> liste(String lieu, Integer nbSecteur, Byte cotation) {
+			List<SiteBo> siteBos= new ArrayList<SiteBo>();
+			List<Object[]> vars  = siteDao.listeCotation(lieu, nbSecteur, cotation);
+			for (Object[] var: vars) {
+			SiteBo siteBo = this.getById((int) var[0]);
+			siteBos.add(siteBo);
+			}
+			
+			
+			return siteBos;
 		}
 
 	

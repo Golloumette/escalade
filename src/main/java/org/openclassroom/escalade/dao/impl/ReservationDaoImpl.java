@@ -63,5 +63,10 @@ public class ReservationDaoImpl implements ReservationDao {
 		return (ReservationBo) emf.createEntityManager().createQuery("from ReservationBo where valider= :valider").setParameter("valider", valider).getSingleResult()	;	
 		}
 
+	@Override
+	public List<ReservationBo> liste(UtilisateurBo utilisateurBo) {
+		return emf.createEntityManager().createQuery("from ReservationBo where utilisateurBo= :user").setParameter("user",utilisateurBo).getResultList();
+	}
+
 	
 }

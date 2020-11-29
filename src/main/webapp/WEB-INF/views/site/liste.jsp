@@ -33,6 +33,7 @@
                             	<div class="form-group">
                                 <label class="font-weight-bold" for="site-select">Nombre de secteur</label>
                                 <select class="form-control"  name="nbSecteur">
+                                	<option value=0>---</option>
                                 	 <option value="1">1-5</option>
 									<option value="2">5-10</option>
 									<option value="3">10+</option>
@@ -43,6 +44,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold" for="site-select">Cotation de la voie</label>
                                 <select class="form-control"  name="cotation">
+                               	    <option value="">---</option>
                                   	<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>

@@ -12,7 +12,7 @@ public interface SiteDao {
 	public SiteBo getById(Integer id);
 	public void deleteById(Integer id);
 	public List<SiteBo> liste(String nom);
-	List<SiteBo> listeCotation(String lieu, Integer nbSecteur, Byte cotation);
+	List<Object[]> listeCotation(String lieu, Integer nbSecteur, Byte cotation);
 	
 	
 }

@@ -1,5 +1,6 @@
 package org.openclassroom.escalade.business.impl;
 
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -8,6 +9,7 @@ import org.openclassroom.escalade.business.ReservationService;
 import org.openclassroom.escalade.dao.ReservationDao;
 import org.openclassroom.escalade.enume.ValidEnum;
 import org.openclassroom.escalade.model.ReservationBo;
+import org.openclassroom.escalade.model.UtilisateurBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +59,13 @@ public class ReservationServiceImpl implements ReservationService {
 	public ReservationBo archiveReservation(Integer topo_id) {
 		List<ReservationBo> reservationBos = reservationDao.findByTopoAndValid(topo_id, ValidEnum.Validate.getNum());
 		return reservationBos.get(0);
+	}
+
+	@Override
+	public List<ReservationBo> liste(UtilisateurBo utilisateurBo) {
+		List<ReservationBo> reservationBos = reservationDao.liste(utilisateurBo);
+		reservationBos.get(0);
+		return reservationBos ;
 	}
 
 	

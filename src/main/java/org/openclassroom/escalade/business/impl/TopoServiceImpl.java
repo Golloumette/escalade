@@ -55,7 +55,6 @@ private TopoDao topoDao;
 	}
 	@Override
 	public List<TopoBo> liste(UtilisateurBo utilisateurBo) {
-		// TODO Auto-generated method stub
 		return topoDao.liste(utilisateurBo);
 	}
 	

@@ -55,7 +55,7 @@ public class TopoController {
 
 		
 		List<TopoBo> topoBos = topoService.liste(utilisateurBo);
-		//TopoBo topoBo = topoService.getById(id);
+
 		mv.addObject("topoBos",topoBos);	
 
 		return mv;

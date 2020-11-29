@@ -13,7 +13,7 @@ public interface SiteService {
 	public SiteBo getById (Integer id);
 	public void deleteById(Integer id);
 	public List<SiteBo> liste(String nom);
-	public List<SiteBo> liste(String lieu, Integer nbSecteur, byte cotation);
+	public List<SiteBo> liste(String lieu, Integer nbSecteur, Byte cotation);
 
 }
     
