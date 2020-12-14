@@ -84,8 +84,10 @@
 				<div class="form-group">
 				<label for="officiel">Officialiser un site</label>	
 				<select name="officiel"  >
+				<option value="false">non officiel</option>	
+				<c:if test="${utilisateurBo.role == 2}">	
 				<option value="true">site officiel</option>
-				<option value="false">non officiel</option>			
+				</c:if>	
 				</select>
 				</div>
 			

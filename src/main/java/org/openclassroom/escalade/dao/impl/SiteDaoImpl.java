@@ -99,47 +99,50 @@ public class SiteDaoImpl implements SiteDao {
 	
 	@Override
 	public List<Object[]> listeCotation (String lieu, Integer nbSecteur, Byte cotation){
-		System.out.println("nombre de secteur= "+nbSecteur+"cotation= "+cotation );
+		System.out.println("nombre de secteur= "+nbSecteur+"cotation= "+cotation+"+lieu = "+ lieu );
 		
-		String sqlString = "SELECT site_id, site.lieu, count(*) as nb FROM secteur join site on site.id = secteur.site_id WHERE 0 = 0 ";
-		String sql1= "SELECT site_id, site.lieu, count(*) as nb FROM secteur join site on site.id = secteur.site_id "  ;
+		String sqlString = "SELECT site_id, site.lieu, count(*) as nb FROM secteur left join site on site.id = secteur.site_id left join voie on secteur.id = voie.secteur_id  WHERE 0 = 0 ";
+	/*	String sql1= "SELECT site_id, site.lieu, count(*) as nb FROM secteur join site on site.id = secteur.site_id "  ;
 		String sql2=" join voie on secteur.id = voie.secteur_id";
 		String sql3=" WHERE 0 = 0 ";
 		String sql4=" GROUP BY site_id HAVING nb > 0 and nb < 1000";
-		String sql5=" and site.lieu LIKE :lieu";
+		String sql5=" and site.lieu LIKE :lieu";*/
 		
 		if (lieu!=null && !lieu.equals("")) {
 			sqlString +=" and site.lieu LIKE :lieu";
 		}
+		
 		if (cotation!= null) {
 			System.out.println("entre boucle cotation");
-			sqlString =sql1+sql2+sql3+" and voie.cotation=:cotation";
+			sqlString +=" and voie.cotation=:cotation";
 			System.out.println(sqlString);        
 		}
 		if (cotation == null) {
-			sqlString+=" and voie.cotation=:cotation";
+		//	sqlString =sql1+sql3+sql5;
+			//" and voie.cotation=:cotation";
+			System.out.println(sqlString);
 		}
 		
 	
 		//sqlString+=" GROUP BY site_id HAVING nb > 0 and nb < 1000";
+	
 		
+			sqlString+=" GROUP BY site_id "; 
+						
 		if (nbSecteur==1) {
 			System.out.println("boucle nbsecteur = 1");
-			sqlString+=" GROUP BY site_id HAVING nb > 0 and nb < 5";//if nb secteur 
+			sqlString+=" HAVING nb > 0 and nb < 5";//if nb secteur 
 			System.out.println(sqlString);
 		}
-		if (nbSecteur==0) {
-			System.out.println("boucle nbsecteur = 0");
-			sqlString+=" GROUP BY site_id HAVING nb > 0 and nb < 1000"; 
-			System.out.println(sqlString);
-		}
+		
 		if (nbSecteur==2) {
 			System.out.println("boucle nbsecteur = 2");
-			sqlString+=" GROUP BY site_id HAVING nb > 4 and nb < 11"; 
+			sqlString+=" HAVING nb > 4 and nb < 11";
+			System.out.println(sqlString);
 		}
 		if (nbSecteur==3) {
 			System.out.println("boucle nbsecteur = 3");
-			sqlString+= " GROUP BY site_id HAVING nb > 10 ";
+			sqlString+= " HAVING nb > 10 ";
 			System.out.println(sqlString);
 		}
 		 
@@ -154,6 +157,7 @@ public class SiteDaoImpl implements SiteDao {
 		return query.getResultList();
 	
 			}
+
 	
 
 }

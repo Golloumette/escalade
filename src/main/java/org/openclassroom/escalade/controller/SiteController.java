@@ -8,11 +8,14 @@ import org.openclassroom.escalade.business.CommentaireService;
 import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.SiteService;
+import org.openclassroom.escalade.business.UtilisateurService;
 import org.openclassroom.escalade.business.VoieService;
+import org.openclassroom.escalade.enume.RoleEnum;
 import org.openclassroom.escalade.model.CommentaireBo;
 import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.SiteBo;
+import org.openclassroom.escalade.model.UtilisateurBo;
 import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +37,8 @@ public class SiteController {
 	private LongueurService longueurService;
 	@Autowired
 	private CommentaireService commentaireService;
+	@Autowired
+	private UtilisateurService utilisateurService;
 
 	//affiche la liste des sites
 	@RequestMapping("/liste")
@@ -48,7 +53,7 @@ public class SiteController {
 
 	//modifier un site existant selectionner par ID et afficher les secteurs
 	@RequestMapping("/edit")
-	public ModelAndView edit(@RequestParam (required=false) Integer id) {
+	public ModelAndView edit(@RequestParam (required=false) Integer id,HttpServletRequest request) {
 		ModelAndView mv2 = new ModelAndView("site/edit");
 		if (id!= null) {
 			SiteBo	siteBo = siteService.getById(id);
@@ -65,6 +70,9 @@ public class SiteController {
 			
 			List<CommentaireBo> commentaireBos= commentaireService.liste(id);
 			mv2.addObject("commentaireBos", commentaireBos);
+			
+			UtilisateurBo utilisateurBo = utilisateurService.findByPseudo(request.getUserPrincipal().getName());
+			mv2.addObject("utilisateurBo", utilisateurBo);
 		}
 
 		mv2.addObject("secteur", "Détail du site secteur,voie et longueur");
@@ -73,13 +81,16 @@ public class SiteController {
 
 	//ajouter un site si pas existant ou modifier un site existant
 	@RequestMapping("/update")
-	public String update(HttpServletRequest request) {
+	public String update(HttpServletRequest request)throws Exception {
 		String id = request.getParameter("id");
 		String nom = request.getParameter("nom");
 		String lieu = request.getParameter("lieu");
 		Boolean officiel = Boolean.parseBoolean(request.getParameter("officiel"));
+		UtilisateurBo utilisateurBo = utilisateurService.findByPseudo(request.getUserPrincipal().getName());
 
-
+		if(!utilisateurBo.getRole().equals(RoleEnum.ROLE_ASSO.getNum())&& officiel) {
+			throw new Exception("Vous n'avez pas les droits requis");
+		}
 		if (id==null|| id.contentEquals("")) {
 			SiteBo siteBo = new SiteBo();
 			siteBo.setNom(nom);
