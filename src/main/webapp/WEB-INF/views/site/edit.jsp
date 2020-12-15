@@ -47,8 +47,8 @@
 		<thead><tr><th>Grimpeur</th><th>Commentaire</th></thead>
 		<tbody><c:forEach items="${commentaireBos}" var="commentaireBo">
 		<tr><td>${commentaireBo.utilisateurBo.nom}</td>
-		<td>${commentaireBo.text} <i class="fas fa-trash-alt" onclick="window.location='/escalade/commentaire/delete.html?id=${commentaireBo.id}'"></i>
-		<a href="/escalade/commentaire/edit.html?id=${commentaireBo.id}"><i class="fas fa-edit" ></i></a>
+		<td>${commentaireBo.text} <c:if test="${utilisateurBo.role == 2}">	<i class="fas fa-trash-alt" onclick="window.location='/escalade/commentaire/delete.html?id=${commentaireBo.id}'"></i>
+		<a href="/escalade/commentaire/edit.html?id=${commentaireBo.id}"><i class="fas fa-edit" ></i></a></c:if>
 		</td>
 		</tr>
 		</c:forEach>
