@@ -38,12 +38,11 @@ public class JpaConfig {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	
-		dataSource.setDriverClassName(Config.getRessource().getClassname());//("com.mysql.cj.jdbc.Driver");
+		dataSource.setDriverClassName(Config.getRessource().getClassname());
 		dataSource.setUrl("jdbc:mysql://"+Config.getRessource().getServeur()+":"+Config.getRessource().getPort()+"/"+Config.getRessource().getBdd()+"?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC");
-		System.out.println("jdbc:mysql://"+Config.getRessource().getServeur()+":"+Config.getRessource().getPort()+"/"+Config.getRessource().getBdd()+"?zeroDateTimeBehavior=convertToNull&serverTimezone=UTC");
 		dataSource.setUsername(Config.getRessource().getUser());
 		dataSource.setPassword(Config.getRessource().getPassword());
-		System.out.println("user="+Config.getRessource().getUser()+"pass="+Config.getRessource().getPassword());
+		
 		return dataSource;
 	}
 

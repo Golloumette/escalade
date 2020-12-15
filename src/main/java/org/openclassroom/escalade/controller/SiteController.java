@@ -40,7 +40,11 @@ public class SiteController {
 	@Autowired
 	private UtilisateurService utilisateurService;
 
-	//affiche la liste des sites
+	/**
+	 * Affiche la liste des sites
+	 * @return
+	 * return la liste depuis le BDD
+	 */
 	@RequestMapping("/liste")
 	public ModelAndView liste() {
 
@@ -51,7 +55,15 @@ public class SiteController {
 		return mv;
 	}
 
-	//modifier un site existant selectionner par ID et afficher les secteurs
+	
+	/**
+	 * Permet de compléter un site par l'ajout secteur,voie,longueur,commentaire ou d'en ajouter un nouveau
+	 * @param id 
+	 * Id du site pour annexer les infos sur le bon site
+	 * @param request
+	 * Récup les droits de l'utilisateur 
+	 * @return
+	 */
 	@RequestMapping("/edit")
 	public ModelAndView edit(@RequestParam (required=false) Integer id,HttpServletRequest request) {
 		ModelAndView mv2 = new ModelAndView("site/edit");
@@ -79,7 +91,9 @@ public class SiteController {
 		return mv2;
 	}
 
-	//ajouter un site si pas existant ou modifier un site existant
+	/*
+	 * Ajouter ou editer un site 
+	 */
 	@RequestMapping("/update")
 	public String update(HttpServletRequest request)throws Exception {
 		String id = request.getParameter("id");
@@ -114,7 +128,14 @@ public class SiteController {
 
 		return "redirect:/site/liste.html";
 	}
-
+	/**
+	 * Supprime un site 
+	 * @param id
+	 * recup l'id du site et supprime le site et les caractérisitiques
+	 * @return
+	 * renvoie à la liste des sites 
+	 *  
+	 */
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(required=true)Integer id) {
 		SiteBo siteBo = siteService.getById(id);
@@ -137,7 +158,12 @@ public class SiteController {
 
 		return "redirect:/site/liste.html";
 	}
-
+	/**
+	 * Fait un recherche à partir du nom
+	 * @param nom
+	 * infos de la barre de recherche
+	 * @return
+	 */
 	@RequestMapping("/search")
 	
 	public ModelAndView search(String nom) {
@@ -151,6 +177,13 @@ public class SiteController {
 	
 		
 }
+/**
+ 	* Recherche avancé avec plusieurs critères 
+ * @param lieu
+ * @param nbSecteur
+ * @param cotation
+ * @return
+ */
 	@RequestMapping("/advanced")
 	public ModelAndView advanced(@RequestParam(required = false)String lieu,@RequestParam(required = false)Integer nbSecteur ,@RequestParam(required = false)Byte cotation) {
 		
