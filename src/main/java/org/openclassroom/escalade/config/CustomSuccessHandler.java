@@ -27,7 +27,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 		  HttpSession session = request.getSession();
 
 	        session.setAttribute("utilisateurBo", utilisateurBo);
-	        System.out.println("methode auth succes");
+	       
 	     
 		
 
