@@ -1,7 +1,10 @@
 <div class="container">
-
+	<div class="row">
+		<div class="col-sm-6">
 <div class=" d-flex justify-content-center " style="max-height: 300px">
 <img class="align-self-start" src="/escalade/images/site.jpeg" alt="site"  style="max-height: 300px"   >
+</div>
+</div>
 </div>
 <div class="container">
 	<div class="row">
@@ -68,9 +71,9 @@
 	
 	<thead class="table-info">
 		<tr>
-			<th>Nom</th>
-			<th>Lieu</th>
-			<th style="text-align:center;">Officiel</th>
+			<th class="site-nom">Nom</th>
+			<th class="site-lieu">Lieu</th>
+			<th class="site-offciel" style="text-align:center;">Officiel</th>
 		</tr>
 	</thead>	
 	<tbody>
@@ -79,14 +82,14 @@
 		<input type="hidden" name="id" value="${siteBo.id}">
 		<tr>
 			
-			<td><a href="/escalade/site/edit.html?id=${siteBo.id}"> ${siteBo.nom}</a></td>
-			<td>${siteBo.lieu}</td>
+			<td data-label="Nom"><a href="/escalade/site/edit.html?id=${siteBo.id}"> ${siteBo.nom}</a></td>
+			<td data-label="Lieu">${siteBo.lieu}</td>
 			
 			<c:if test="${siteBo.officiel == true}" >
-			<td style="text-align: center;"><i class="far fa-smile-beam " style="color:#2EA925;" ></i></td>
+			<td data-label="Officiel" style="text-align: center;"><i class="far fa-smile-beam " style="color:#2EA925;" ></i></td>
 			</c:if>
 			<c:if test="${siteBo.officiel == false}">
-			<td style="text-align: center;"><i class="far fa-frown" style="color:#DE311F"></i></td>
+			<td data-label="Officiel" style="text-align: center;"><i class="far fa-frown" style="color:#DE311F"></i></td>
 			</c:if>
 		
 				</tr>

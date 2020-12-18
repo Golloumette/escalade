@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
 import org.openclassroom.escalade.business.SiteService;
+import org.openclassroom.escalade.business.UtilisateurService;
 import org.openclassroom.escalade.business.VoieService;
 import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
 import org.openclassroom.escalade.model.SiteBo;
+import org.openclassroom.escalade.model.UtilisateurBo;
 import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,9 @@ public class SecteurController {
 	
 	@Autowired
 	private VoieService voieService;
+	
+	@Autowired
+	private UtilisateurService utilisateurService;
 
 	@RequestMapping("/liste")
 	public ModelAndView liste() {
@@ -44,13 +49,16 @@ public class SecteurController {
 		ModelAndView mv = new ModelAndView("secteur/liste");// localisation du  jsp dossier+nom jsp
 		mv.addObject("secteurBos", secteurBos);
 		mv.addObject("secteur", "Bonjour , voici les secteurs");
+		
 		return mv;
 	}
 
 	@RequestMapping("/edit")
-	public ModelAndView edit(@RequestParam(required=false) Integer id,@RequestParam(required=false) Integer site_id) {
+	public ModelAndView edit(@RequestParam(required=false) Integer id,@RequestParam(required=false) Integer site_id, HttpServletRequest request) {
 		
 		ModelAndView mv2 = new ModelAndView("secteur/edit");
+		UtilisateurBo utilisateurBo = utilisateurService.findByPseudo(request.getUserPrincipal().getName());
+		mv2.addObject("utilisateurBo", utilisateurBo);
 		if(id!=null) {
 			SecteurBo secteurBo = secteurService.getById(id);
 			mv2.addObject("secteurBo",secteurBo);

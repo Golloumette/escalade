@@ -1,14 +1,21 @@
 <div class="container">
+
+<div class="d-flex justify-content-center" style="max-height:300px">
+<img class="align-self-start" src="/escalade/images/escalade3.jpg" alt="escalade3" style="max-height: 300px">
+</div>
+
+
+<div class="container">
 <div class="row">
-<div class=" d-flex border" style="height: 300px;">
-<img class="align-self-start" src="/escalade/images/escalade1.jpg" alt="escalade1" width="150" height="200">
-<img class="align-self-center" src="/escalade/images/escalade2.jpg" alt="escalade2" width="300" height="200">
-<img class="align-self-end" src="/escalade/images/escalade3.jpg" alt="escalade3" width="150" height="200">
+
+<div class="col-sm-10 md-8 lg-8">
+
 </div>
 </div>
 <div class="row">
+<div class="col-lg-10 md-10 sm-10">
 <form method="post" action="update.html">
-	<h1> Formulaire inscription</h1>
+	<h1 style="text-align:center"> Formulaire d'inscription</h1>
 	
 	
 				
@@ -59,5 +66,7 @@
 
 			<button type="submit" class="btn btn-primary">Envoyer</button>
 			</form>
+			</div>
+</div>
 </div>
 </div>

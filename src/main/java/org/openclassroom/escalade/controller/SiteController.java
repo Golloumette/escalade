@@ -139,11 +139,21 @@ public class SiteController {
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(required=true)Integer id) {
 		SiteBo siteBo = siteService.getById(id);
+		
+	
+		for(CommentaireBo commentaireBo : siteBo.getCommentaireBos()) {
+						
+						commentaireService.deleteById(commentaireBo.getId());
+					}
+					
+				
 		for (SecteurBo secteurBo : siteBo.getSecteurBos() ) {
+			
 
 			for(VoieBo voieBo : secteurBo.getVoieBos() ) {
 
 				for(LongueurBo longueurBo : voieBo.getLongueurBos()) {
+					
 					
 					longueurService.deleteById(longueurBo.getId());
 					
@@ -177,7 +187,7 @@ public class SiteController {
 	
 		
 }
-/**
+	/**
  	* Recherche avancé avec plusieurs critères 
  * @param lieu
  * @param nbSecteur

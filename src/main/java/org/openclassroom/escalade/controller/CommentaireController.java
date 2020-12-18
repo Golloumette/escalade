@@ -90,7 +90,7 @@ public class CommentaireController {
 	@RequestMapping("/delete")
 	
 	public String delete(@RequestParam(required=true)Integer id) {
-		System.out.println("commentaire+delete");
+	
 		
 		CommentaireBo commentaireBo = commentaireService.getById(id);
 		

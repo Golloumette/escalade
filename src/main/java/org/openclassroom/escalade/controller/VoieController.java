@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.openclassroom.escalade.business.LongueurService;
 import org.openclassroom.escalade.business.SecteurService;
+import org.openclassroom.escalade.business.UtilisateurService;
 import org.openclassroom.escalade.business.VoieService;
 import org.openclassroom.escalade.model.LongueurBo;
 import org.openclassroom.escalade.model.SecteurBo;
+import org.openclassroom.escalade.model.UtilisateurBo;
 import org.openclassroom.escalade.model.VoieBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,8 @@ public class VoieController {
 	
 	@Autowired
 	private LongueurService longueurService;
+	@Autowired
+	private UtilisateurService utilisateurService;
 	
 	@RequestMapping("/liste")
 	public ModelAndView liste() {
@@ -39,8 +43,10 @@ public class VoieController {
 	}
 	
 	@RequestMapping("/edit")
-	public ModelAndView edit (@RequestParam(required=false) Integer id) {
+	public ModelAndView edit (@RequestParam(required=false) Integer id, HttpServletRequest request) {
 		ModelAndView mv2 = new ModelAndView("voie/edit");
+		UtilisateurBo utilisateurBo = utilisateurService.findByPseudo(request.getUserPrincipal().getName());
+		mv2.addObject("utilisateurBo", utilisateurBo);
 		if(id!=null) {
 			VoieBo voieBo = voieService.getById(id);
 			mv2.addObject("voieBo",voieBo);
