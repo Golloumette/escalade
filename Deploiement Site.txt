@@ -1,0 +1,54 @@
+Site: "Les amis de l'escalade"
+Serveur d'application: Apache TOMCAT 7.0
+BDD: MySQL
+Projet: Maven
+Site WAR Déploiement:
+1) Rendez-vous dans le dossier config de Tomcat et ouvrez le fichier User.xml
+Ajout les lignes de commande suivante:
+<role rolename="manager-gui"/>
+ <role rolename="manager-script"/>
+ <user username="admin" password="password" roles="manager-gui,manager-script"/>
+
+2) Modifier le fichier setting.xml de Maven
+Ajouter les lignes suivantes:
+<servers>
+  
+    <server>
+      <id>TomcatServer</id>
+      <username>admin</username>
+      <password>password</password>
+
+    </server>
+    
+  </servers>
+ <pluginGroups>
+    
+    <pluginGroup>org.apache.tomcat.maven</pluginGroup>
+
+  </pluginGroups>
+    
+</settings>
+
+3) Modifier le fichier POM.xml pour ajouter le plugin de Maven
+<plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+            <url>http://localhost:8080/manager/text</url>
+            <server>TomcatServer</server>
+            <path>/mkyongWebApp</path>
+        </configuration>
+    </plugin>
+
+4) Taper la ligne de commande mvn tomcat7:deploy
+
+5)Récupérer le fichier WAR 
+
+6)Place le dans le dossier webapps de Tomcat
+
+7)Aller dans le dossier bin de Tomcat et lancer startup.bat
+
+8)Ouvrez votre navigateur internet et taper l'url du site
+
+Et voilà le site est prêt.
